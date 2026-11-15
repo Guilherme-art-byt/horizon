@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-W0UmfKBd0PLxYmA9e82ynh4Qbac/PpFSevo3gW7Fclw=' 'sha256-zmTpc/WWaS0tiTW5O+NRyejq0efUhpMgbZ28yY379mQ=' 'sha256-QzrI95wEpY5LcvXLbGUUXNfzh22UiblLhFVEB/LYfao=' 'sha256-xUTQ/k5S8myhBhcNU3//seXC5T54HV/+wfTnPMxeaS8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self' https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; media-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-W0UmfKBd0PLxYmA9e82ynh4Qbac/PpFSevo3gW7Fclw=' 'sha256-FnNG2kKGFnh/ebTgxQiB06BIWsSnZ7eNQd8jitPd9vM=' 'sha256-QzrI95wEpY5LcvXLbGUUXNfzh22UiblLhFVEB/LYfao=' 'sha256-OoIddaAsVxwjmHw/0w7RZ/NGY6STHWdKBCpvQtiHvR0=' 'sha256-xUTQ/k5S8myhBhcNU3//seXC5T54HV/+wfTnPMxeaS8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self' https://generativelanguage.googleapis.com https://api.anthropic.com https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; media-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -14,7 +14,7 @@
 <link rel="icon" href="icons/icon-192.png">
 <script>try{var _t=localStorage.getItem("cacaleads-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=_t;var _a=localStorage.getItem("horizon-accent");if(_a)document.documentElement.dataset.accent=_a;}catch(e){document.documentElement.dataset.theme="light";}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="vendor/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H">
 <style>
 :root{
@@ -497,6 +497,119 @@ button.primary:hover{filter:brightness(1.08)}
   .lc-status{max-width:none;width:100%;order:3}
   .tl li{grid-template-columns:1fr}
 }
+
+/* ================== visual tecnológico ================== */
+:root{--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--glow:0 0 0 1px color-mix(in srgb,var(--accent) 45%,transparent),0 0 22px -6px color-mix(in srgb,var(--accent) 70%,transparent)}
+body{background-color:var(--bg);background-image:radial-gradient(color-mix(in srgb,var(--ink) 9%,transparent) 1px,transparent 1.3px),radial-gradient(ellipse 80% 40% at 50% -10%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%);background-size:22px 22px,100% 100%;background-attachment:fixed}
+[data-theme=dark] body{background-image:radial-gradient(color-mix(in srgb,var(--accent) 22%,transparent) 1px,transparent 1.3px),radial-gradient(ellipse 80% 45% at 50% -10%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%)}
+h1{font-family:var(--mono);letter-spacing:-.02em;font-weight:700}
+h1 span::after{content:"_";color:var(--accent);animation:blink 1.1s steps(1) infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.sysbar{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;font:500 11.5px var(--mono);color:var(--muted);letter-spacing:.02em}
+.sysbar span{white-space:nowrap}
+.sysbar .live{color:#22c55e;display:flex;align-items:center;gap:6px;text-transform:uppercase;font-weight:700}
+.sysbar .live i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.searching .sysbar .live{color:var(--accent)} .searching .sysbar .live i{background:var(--accent);animation-duration:.8s}
+.sub{font-family:var(--mono);font-size:12px;letter-spacing:.01em}
+/* números e rótulos em fonte de código */
+.kpi b,.badge,.tag,.score,.hbar em,.vb em,.vb span,.col .sum,.col h4 .badge,.pill b,.mini-stats .pill,.tl li span,.lbl,label.lbl,.lc-fields small,.lc-hist>small,.meta b,.kcard .m b,#sysClock{font-family:var(--mono)}
+.kpi{position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);opacity:.8}
+.kpi b{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.kpi span{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em}
+.kpi:hover{box-shadow:var(--glow)}
+.lbl,label.lbl{font-size:10.5px;letter-spacing:.1em}
+.panel{position:relative}
+.panel::before,.panel::after{content:"";position:absolute;width:10px;height:10px;border-color:var(--accent);border-style:solid;opacity:.55;pointer-events:none}
+.panel::before{top:-1px;left:-1px;border-width:2px 0 0 2px;border-top-left-radius:14px}
+.panel::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-bottom-right-radius:14px}
+input[type=text]:focus,input[type=number]:focus,input[type=date]:focus,select:focus,textarea:focus{outline:0;box-shadow:var(--glow);border-color:var(--accent)}
+#place{font-family:var(--mono);font-size:14px}
+button.primary{box-shadow:0 0 18px -4px color-mix(in srgb,var(--accent) 80%,transparent)!important;letter-spacing:.01em}
+button.primary:hover{box-shadow:0 0 26px -2px color-mix(in srgb,var(--accent) 90%,transparent)!important}
+.chip{font-size:13px}
+.chip.on{box-shadow:inset 0 0 0 1px var(--accent),0 0 14px -6px var(--accent)!important}
+/* status no estilo terminal */
+.status{font-family:var(--mono);font-size:12.5px;padding:8px 12px;border-radius:8px;background:color-mix(in srgb,var(--ink) 5%,transparent);border:1px solid var(--line)}
+.status::before{content:"› ";color:var(--accent);font-weight:700}
+.status.err{border-color:color-mix(in srgb,#ef4444 40%,transparent)}
+.status.busy::after,.searching .status::after{content:"▋";color:var(--accent);margin-left:4px;animation:blink .8s steps(1) infinite}
+.progress{height:2px;background:transparent}
+.progress i{box-shadow:0 0 12px var(--accent)}
+/* abas */
+.tab{font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+.tab.on{border-bottom-color:var(--accent);text-shadow:0 0 18px color-mix(in srgb,var(--accent) 60%,transparent)}
+.ghost-btn{font-family:var(--mono);font-size:12px!important;text-transform:uppercase;letter-spacing:.05em}
+/* cartões */
+.lead{border-left:2px solid transparent;transition:border-color .2s,box-shadow .2s}
+.lead:hover{border-left-color:var(--accent);box-shadow:var(--glow)}
+.lead .meta{font-size:12.5px}
+.tag{font-size:10.5px;letter-spacing:.02em;border-radius:5px}
+.actions a,.actions button{font-size:12px}
+.col h4{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em}
+.kcard:hover{box-shadow:var(--glow)}
+.diag li{font-family:var(--mono);font-size:12.5px}
+.vb i{box-shadow:0 0 14px -4px var(--accent)}
+.toast{font-family:var(--mono);font-size:12.5px}
+
+.site-foot{font-family:var(--mono);font-size:11px}
+@media (prefers-reduced-motion:reduce){h1 span::after,.sysbar .live i,.status.busy::after{animation:none}}
+@media (max-width:600px){.sysbar{gap:10px}.sysbar #sysClock{display:none}.panel::before,.panel::after{display:none}}
+
+/* menu ⋯ sempre por cima do próximo cartão */
+.lead{will-change:auto;position:relative}
+.lead.menu-open{z-index:45}
+/* ================== assistente de IA ================== */
+.ai-fab{position:fixed;right:22px;bottom:22px;z-index:70;display:flex;align-items:center;gap:8px;padding:12px 18px 12px 14px!important;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);background:var(--card-solid);color:var(--ink);font-family:var(--mono);font-weight:700;box-shadow:var(--glow),0 10px 30px -10px rgba(0,0,0,.35)!important;transition:transform .2s}
+.ai-fab span{color:var(--accent);font-size:18px;animation:spinStar 6s linear infinite;display:inline-block}
+@keyframes spinStar{to{transform:rotate(360deg)}}
+.ai-fab:hover{transform:translateY(-2px)}
+.ai-open .ai-fab{opacity:0;pointer-events:none}
+.bulk.on~.ai-fab,.ai-fab{bottom:22px}
+.ai-panel{position:fixed;top:12px;right:12px;bottom:12px;width:min(420px,calc(100vw - 24px));z-index:80;display:flex;flex-direction:column;background:var(--card-solid);border:1px solid var(--line);border-radius:18px;box-shadow:var(--glow),0 30px 60px -20px rgba(0,0,0,.5);transform:translateX(calc(100% + 30px));transition:transform .3s cubic-bezier(.2,.9,.3,1)}
+.ai-open .ai-panel{transform:none}
+.ai-head{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 12px 18px;border-bottom:1px solid var(--line)}
+.ai-title{font-family:var(--mono);font-weight:700;display:flex;align-items:center;gap:8px}
+.ai-title small{font-size:10px;padding:2px 6px;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
+.ai-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s infinite}
+.ai-tools{display:flex;gap:4px}
+.ai-tools button{background:none;border:0;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:14px}
+.ai-tools button:hover{background:var(--tag);color:var(--ink)}
+.ai-set{padding:14px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--accent) 4%,transparent)}
+.ai-set .help{font-size:12px}
+.ai-note{margin:10px 0 0}
+.ai-focus{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:10px 14px 0;padding:8px 12px;border-radius:10px;background:var(--accent-soft);font-size:13px}
+.ai-focus button{background:none;border:0;padding:2px 6px;color:var(--accent)}
+.ai-msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ai-msg{max-width:92%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.5;word-wrap:break-word}
+.ai-msg.me{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+.ai-msg.bot{align-self:flex-start;background:var(--tag);border-bottom-left-radius:4px}
+.ai-msg.err{align-self:stretch;background:color-mix(in srgb,#ef4444 12%,transparent);color:var(--err);font-size:13px}
+.ai-msg .li{display:block;padding-left:4px}
+.ai-draft{margin:8px 0;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:12px;background:var(--card-solid);overflow:hidden}
+.ai-draft-txt{padding:10px 12px;font-size:13.5px}
+.ai-draft-act{display:flex;gap:6px;padding:8px 10px;border-top:1px solid var(--line);background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.ai-draft-act button{font-size:12px;padding:5px 10px}
+.ai-draft-act .wa{background:#25d366;color:#fff;border-color:#25d366}
+.typing{display:flex;gap:5px;padding:14px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:typ 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes typ{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.ai-empty{margin:auto;text-align:center;color:var(--muted);font-size:13.5px;max-width:280px}
+.ai-empty b{color:var(--ink);font-size:15px}
+.ai-orb{width:58px;height:58px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-size:26px;color:#fff;background:var(--grad);box-shadow:0 0 30px -4px var(--accent)}
+.ai-quick{display:flex;gap:6px;overflow-x:auto;padding:0 14px 10px;scrollbar-width:none}
+.ai-quick::-webkit-scrollbar{display:none}
+.ai-quick button{white-space:nowrap;font-size:12px;padding:6px 10px;border-radius:999px}
+.ai-quick button:hover{border-color:var(--accent);color:var(--accent)}
+.ai-form{display:flex;gap:8px;padding:12px 14px 14px;border-top:1px solid var(--line)}
+.ai-form textarea{flex:1;resize:none;min-height:42px;max-height:140px;padding:10px 12px;font-size:14px}
+.ai-form button{padding:0 16px;font-size:16px}
+.ai-nokey{padding:16px 18px;border-top:1px solid var(--line);text-align:center}
+.ai-nokey p{margin:0 0 10px;color:var(--muted);font-size:13.5px}
+@media (max-width:600px){.ai-panel{top:0;right:0;bottom:0;width:100vw;border-radius:0}.ai-fab{right:14px;bottom:14px}}
+@media (prefers-reduced-motion:reduce){.ai-fab span,.ai-dot{animation:none}}
 </style>
 </head>
 <body>
@@ -509,6 +622,7 @@ button.primary:hover{filter:brightness(1.08)}
     <div>
       <h1><span>Horizon</span></h1>
       <p class="sub">Empresas sem site, prontas para virar clientes.</p>
+      <div class="sysbar" aria-live="off"><span class="live"><i></i>online</span><span id="sysLeads">0 leads</span><span id="sysLast">nenhuma busca ainda</span><span id="sysClock"></span></div>
     </div>
   </div>
   <div class="theme-toggle" role="group" aria-label="Tema">
@@ -740,6 +854,26 @@ button.primary:hover{filter:brightness(1.08)}
   <button id="bulkClear">Limpar</button>
 </div>
 
+<button type="button" class="ai-fab" id="aiFab" aria-label="Assistente de IA" title="Assistente de IA"><span>✦</span><b>IA</b></button>
+<aside class="ai-panel" id="aiPanel" aria-label="Assistente de IA">
+  <div class="ai-head">
+    <div class="ai-title"><span class="ai-dot"></span>Assistente <small>IA</small></div>
+    <div class="ai-tools"><button type="button" id="aiNew" title="Nova conversa">＋</button><button type="button" id="aiGear" title="Configurar">⚙️</button><button type="button" id="aiClose" title="Fechar">✕</button></div>
+  </div>
+  <div class="ai-set" id="aiSet" hidden>
+    <div class="fld"><label for="aiProv">Serviço de IA</label><select id="aiProv"><option value="gemini">Google Gemini (tem plano grátis)</option><option value="claude">Claude (Anthropic, pago por uso)</option></select></div>
+    <div class="fld"><label for="aiKey">Chave de API</label><input type="password" id="aiKey" autocomplete="off" spellcheck="false"><small class="help" id="aiKeyHint"></small></div>
+    <div class="fld"><label for="aiModel">Modelo <span class="lbl-hint">(opcional)</span></label><input type="text" id="aiModel" spellcheck="false"></div>
+    <div class="row" style="align-items:center"><button type="button" class="primary" id="aiSave">Salvar e testar</button><small id="aiSetMsg" class="help"></small></div>
+    <p class="help ai-note">🔒 A chave fica salva só neste navegador e vai direto para o serviço de IA. Ela não entra no backup e não passa por nenhum outro lugar.</p>
+  </div>
+  <div class="ai-focus" id="aiFocus" hidden></div>
+  <div class="ai-msgs" id="aiMsgs"></div>
+  <div class="ai-quick" id="aiQuick"></div>
+  <div class="ai-nokey" id="aiNoKey" hidden><p>Para usar o assistente, conecte uma IA. O Google Gemini tem plano grátis e leva 1 minuto.</p><button type="button" class="primary" id="aiSetupBtn">Conectar IA</button></div>
+  <form class="ai-form" id="aiForm" hidden><textarea id="aiInput" rows="1" maxlength="4000" placeholder="Pergunte ou peça uma mensagem…"></textarea><button type="submit" class="primary" aria-label="Enviar">➤</button></form>
+</aside>
+
 <div class="modal" id="modal"><div class="box" id="modalBox"></div></div>
 <div class="toast" id="toast"></div>
 
@@ -957,8 +1091,14 @@ function renderRecent(){
   $("recent").innerHTML = store.recent.length ? "Buscas recentes: " + store.recent.map(r=>`<button data-r="${esc(r)}">${esc(r)}</button>`).join("") : "";
   $("recent").querySelectorAll("button").forEach(b=>b.onclick=()=>{ $("place").value=b.dataset.r; search(); });
 }
-function setStatus(msg, err){ const s=$("status"); s.textContent=msg; s.className="status"+(err?" err":""); }
-function loading(on){ $("go").disabled=on; $("go").classList.toggle("loading",on); $("progress").classList.toggle("on",on); }
+function setStatus(msg, err){ const s=$("status"); s.textContent=msg; s.className="status"+(err?" err":"")+($("go").classList.contains("loading")?" busy":""); }
+function sysbar(){
+  const n=Object.keys(store.leads).length; $("sysLeads").textContent=`${n} lead${n===1?" salvo":"s salvos"}`;
+  if(lastSearchAt) { const s=Math.round((Date.now()-lastSearchAt)/1000); $("sysLast").textContent= s<60?`última busca há ${s}s`: s<3600?`última busca há ${Math.round(s/60)} min`:"última busca há mais de 1 h"; }
+  $("sysClock").textContent=new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+}
+setInterval(()=>{ if(!document.hidden) sysbar(); },1000);
+function loading(on){ document.documentElement.classList.toggle("searching",on); $("go").disabled=on; $("go").classList.toggle("loading",on); $("progress").classList.toggle("on",on); }
 
 /* ================== busca ================== */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -1209,6 +1349,7 @@ function leadCard(l, opts={}){
       ${L.insta?`<a href="${esc(L.insta)}" target="_blank" rel="noopener noreferrer">${IC.ig} Instagram</a>`:""}
       <span class="more-wrap"><button data-act="more" aria-label="Mais ações" title="Mais ações">⋯</button>
         <div class="pop" hidden>
+          <button data-act="ai">✦ Pedir à IA</button>
           <button data-act="copy">${IC.copy} Copiar mensagem</button>
           <button data-act="pdf">📄 Proposta em PDF</button>
           <button data-act="preview">✨ Prévia do site</button>
@@ -1262,7 +1403,7 @@ function bindList(container, after){
     const card=b.closest(".lead"); if(!card) return;
     const l=getLead(card.dataset.id); if(!l) return;
     const act=b.dataset.act;
-    if(act==="more"){ const pop=b.nextElementSibling, was=!pop.hidden; document.querySelectorAll(".pop").forEach(p=>p.hidden=true); pop.hidden=was; return; }
+    if(act==="more"){ const pop=b.nextElementSibling, was=!pop.hidden; document.querySelectorAll(".pop").forEach(p=>p.hidden=true); document.querySelectorAll(".lead.menu-open").forEach(x=>x.classList.remove("menu-open")); pop.hidden=was; card.classList.toggle("menu-open",!was); return; }
     if(b.closest(".pop")) b.closest(".pop").hidden=true;
     if(act==="toggle"){ openDetails.has(l.id)?openDetails.delete(l.id):openDetails.add(l.id); rerenderCard(container,l.id); return; }
     if(act==="wa"){ // abre o WhatsApp e registra o contato
@@ -1275,10 +1416,11 @@ function bindList(container, after){
     if(act==="pdf"&&window.hzProposal){ hzProposal(l); return; }
     if(act==="preview"&&window.hzPreview){ hzPreview(l); return; }
     if(act==="edit"){ leadForm(l); return; }
+    if(act==="ai"&&window.hzAI){ $("modal").classList.remove("on"); hzAI(l); return; }
     if(act==="remove"){ confirmBox(`Excluir "${l.name}"?`,"A empresa e todo o histórico dela serão apagados.","Excluir",()=>{ delete store.leads[l.id]; saveStore(); results=results.filter(x=>x.id!==l.id); $("modal").classList.remove("on"); refreshAll(); toast("Empresa excluída"); }); return; }
   });
 }
-document.addEventListener("click",e=>{ if(!e.target.closest(".more-wrap")) document.querySelectorAll(".pop").forEach(p=>p.hidden=true); });
+document.addEventListener("click",e=>{ if(!e.target.closest(".more-wrap")){ document.querySelectorAll(".pop").forEach(p=>p.hidden=true); document.querySelectorAll(".lead.menu-open").forEach(x=>x.classList.remove("menu-open")); } });
 
 /* ================== adicionar / editar empresa ================== */
 function confirmBox(title,text,okLabel,onOk){
@@ -1507,7 +1649,7 @@ function renderKpis(){
     k("i4",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>', brl(won), `fechado · ${closed.length} cliente${closed.length===1?"":"s"}`) +
     k("i5",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>', f.filter(x=>x.follow&&x.follow<=t&&!DONE.includes(x.status)).length, `retornos para hoje · conversão ${conv}%`);
 }
-function updateBadges(){
+function updateBadges(){ if(typeof sysbar==="function") try{ sysbar(); }catch(e){}
   $("bRes").textContent=results.length; $("bFun").textContent=funnelLeads().length;
   const due=reminderLeads().filter(x=>x.follow<=today()).length;
   $("bRem").textContent= due || reminderLeads().length; $("bRem").classList.toggle("alert", due>0);
@@ -1787,6 +1929,172 @@ footer{text-align:center;color:#6b7280;font-size:13px;padding:30px 6vw 50px}.rib
     el.hidden=false;
     el.innerHTML=`<span>Complemente no Google Maps:</span>`+cats.slice(0,8).map(c=>`<a href="https://www.google.com/maps/search/${encodeURIComponent((TERMS[c]||c)+" em "+city)}" target="_blank" rel="noopener noreferrer">${escH(TERMS[c]||c)}</a>`).join("");
   };
+})();
+</script>
+<script>
+/* ================== assistente de IA ================== */
+(function(){
+  const $=id=>document.getElementById(id);
+  const KEY="horizon-ai";
+  const PROVIDERS={
+    gemini:{label:"Google Gemini (tem plano grátis)", models:["gemini-flash-latest","gemini-2.5-flash"], keyUrl:"https://aistudio.google.com/app/apikey", keyHint:"Chave do Google AI Studio (começa com AIza…)"},
+    claude:{label:"Claude (Anthropic, pago por uso)", models:["claude-haiku-5-5","claude-sonnet-5-5"], keyUrl:"https://console.anthropic.com/settings/keys", keyHint:"Chave da Anthropic (começa com sk-ant-…)"},
+  };
+  function cfg(){ let c={}; try{ c=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){} if(!PROVIDERS[c.provider]) c.provider="gemini"; c.key=String(c.key||""); c.model=String(c.model||""); return c; }
+  function saveCfg(c){ try{ localStorage.setItem(KEY,JSON.stringify({provider:c.provider,key:c.key,model:c.model})); }catch(e){} }
+  let chat=[], focusLead=null, busy=false;
+
+  /* ---------- contexto: o que a IA sabe sobre o seu trabalho ---------- */
+  function context(){
+    const all=Object.values(store.leads||{}), t=today();
+    const byS={}; all.forEach(x=>{ byS[x.status]=(byS[x.status]||0)+1; });
+    const due=all.filter(x=>x.follow&&x.follow<=t&&!DONE.includes(x.status)).map(x=>x.data.name);
+    const top=all.filter(x=>x.status!=="novo").sort((a,b)=>(b.updated||0)-(a.updated||0)).slice(0,15).map(x=>{
+      const lg=(x.log||[]).slice(-2).map(g=>`${LOGK[g.k].replace(/^\S+\s/,"")}${g.txt?": "+g.txt:""}`).join("; ");
+      return `- ${x.data.name} (${x.data.type||"?"}${x.data.city?", "+x.data.city:""}) · ${STATUSES[x.status].label}${x.value?" · "+brl(x.value):""}${x.follow?" · retorno "+fmtDate(x.follow):""}${x.note?" · nota: "+x.note.slice(0,80):""}${lg?" · últimos contatos: "+lg:""}`; }).join("\n");
+    const res=results.slice(0,12).map(l=>`- ${l.name} (${l.type||"?"}) ${l.phone?"tem telefone":"sem telefone"}${l.insta||l.fb?", só redes sociais":""}`).join("\n");
+    const me=store.me||{};
+    let s=`Hoje é ${new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long",year:"numeric"})}.
+Usuário: ${me.name||"Guilherme"}, cria sites profissionais (com IA) para pequenas empresas e usa o Horizon para achar empresas sem site e vender para elas.
+Funil: ${Object.entries(byS).map(([k,n])=>`${STATUSES[k].label}: ${n}`).join(", ")||"vazio"}.
+Retornos para hoje ou atrasados: ${due.slice(0,10).join(", ")||"nenhum"}.
+Leads trabalhados recentemente:
+${top||"(nenhum)"}
+Última busca (${results.length} empresas${currentCity?" em "+currentCity:""}):
+${res||"(nenhuma busca nesta sessão)"}`;
+    if(focusLead){ const r=rec(focusLead.id)||{}, l=focusLead;
+      s+=`\n\nLEAD EM FOCO: ${l.name}
+Tipo: ${l.type||"?"} · Nicho: ${CATS[l.cat]?CATS[l.cat].label:"outro"} · Cidade/bairro: ${[l.area,l.city].filter(Boolean).join(", ")||"?"}
+Telefone: ${l.phone||"não tem"} · Instagram: ${l.insta||"não tem"} · Endereço: ${l.addr||"?"} · Horário: ${l.hours||"?"}
+Status: ${STATUSES[r.status||"novo"].label}${r.value?" · valor da proposta "+brl(r.value):""}${r.note?" · anotação: "+r.note:""}
+Histórico: ${(r.log||[]).map(g=>`${new Date(g.t).toLocaleDateString("pt-BR")} ${LOGK[g.k].replace(/^\S+\s/,"")}${g.txt?": "+g.txt:""}`).join("; ")||"nenhum contato ainda"}`; }
+    return s;
+  }
+  const SYSTEM=`Você é o assistente de vendas do Horizon, uma ferramenta pessoal de prospecção. Responda sempre em português do Brasil, de forma direta e prática, sem enrolação.
+Seu trabalho: ajudar o usuário a vender sites para empresas locais sem site — escrever mensagens de WhatsApp curtas e naturais (sem parecer robô, sem exagero de emojis), responder objeções, sugerir próximos passos, priorizar leads e dar ideias para o site de cada cliente.
+Regras: mensagens de WhatsApp com no máximo 5 linhas; use o nome da empresa; nunca invente dados que não estão no contexto (preço, telefone, avaliações); se faltar algo, diga o que falta. Respeite a LGPD: nada de mensagens em massa nem insistência com quem pediu para não ser contatado.
+Quando escrever uma mensagem pronta para enviar, coloque SOMENTE o texto da mensagem entre as marcas <<< e >>> (sem aspas), para o usuário poder copiar.`;
+
+  /* ---------- chamada às APIs ---------- */
+  async function callAI(c, history){
+    const sys=SYSTEM+"\n\nCONTEXTO ATUAL:\n"+context();
+    const models=c.model?[c.model]:PROVIDERS[c.provider].models;
+    let lastErr;
+    for(const model of models){
+      try{ return c.provider==="claude" ? await callClaude(c.key,model,sys,history) : await callGemini(c.key,model,sys,history); }
+      catch(e){ lastErr=e; if(!e.tryNext) break; }
+    }
+    throw lastErr;
+  }
+  function httpErr(status,detail){
+    const e=new Error(
+      status===400&&/key|API_KEY/i.test(detail) || status===401 || status===403 ? "Chave de API inválida ou sem permissão. Confira em ⚙️ Configurar." :
+      status===429 ? "Limite de uso atingido (no plano grátis são poucas mensagens por minuto). Espere um pouco e tente de novo." :
+      status===404 ? "Modelo não encontrado." :
+      status>=500 ? "O serviço de IA está instável agora. Tente de novo em instantes." : "Erro da IA ("+status+"): "+String(detail).slice(0,160));
+    e.tryNext = status===404 || (status===400 && /model/i.test(detail)); return e;
+  }
+  async function callGemini(key,model,sys,history){
+    const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,{method:"POST",
+      headers:{"Content-Type":"application/json","x-goog-api-key":key},
+      body:JSON.stringify({systemInstruction:{parts:[{text:sys}]},contents:history.map(m=>({role:m.role==="user"?"user":"model",parts:[{text:m.text}]})),generationConfig:{temperature:.8,maxOutputTokens:2048}})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok) throw httpErr(r.status,(j.error&&j.error.message)||"");
+    const txt=((j.candidates||[])[0]?.content?.parts||[]).map(p=>p.text||"").join("").trim();
+    if(!txt) throw new Error((j.candidates||[])[0]?.finishReason==="SAFETY"?"A IA não quis responder isso. Tente reformular.":"A IA não retornou texto. Tente de novo.");
+    return txt;
+  }
+  async function callClaude(key,model,sys,history){
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",
+      headers:{"Content-Type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({model,max_tokens:1024,system:sys,messages:history.map(m=>({role:m.role==="user"?"user":"assistant",content:m.text}))})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok) throw httpErr(r.status,(j.error&&j.error.message)||"");
+    const txt=(j.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("").trim();
+    if(!txt) throw new Error("A IA não retornou texto. Tente de novo.");
+    return txt;
+  }
+
+  /* ---------- interface ---------- */
+  function md(s){ // texto seguro com negrito, listas e quebras de linha
+    return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/^\s*[-•]\s+(.*)$/gm,"<span class='li'>• $1</span>").replace(/^#{1,4}\s*(.*)$/gm,"<b>$1</b>").replace(/\n/g,"<br>").replace(/<\/span><br>/g,"</span>");
+  }
+  function renderMsg(m,i){
+    if(m.role==="user") return `<div class="ai-msg me">${esc(m.text)}</div>`;
+    if(m.role==="error") return `<div class="ai-msg err">${esc(m.text)}</div>`;
+    const parts=[]; let rest=m.text, re=/<<<([\s\S]*?)>>>/g, last=0, mm;
+    while((mm=re.exec(m.text))){ if(mm.index>last) parts.push({t:"txt",v:m.text.slice(last,mm.index)}); parts.push({t:"draft",v:mm[1].trim()}); last=re.lastIndex; }
+    if(last<m.text.length) parts.push({t:"txt",v:m.text.slice(last)});
+    return `<div class="ai-msg bot">${parts.map((p,k)=>p.t==="txt"?md(p.v.trim()):
+      `<div class="ai-draft"><div class="ai-draft-txt">${esc(p.v).replace(/\n/g,"<br>")}</div><div class="ai-draft-act"><button data-ai-copy="${i}:${k}">Copiar</button>${m.lead&&waNumber(m.lead.phone)?`<button class="wa" data-ai-wa="${i}:${k}">Enviar no WhatsApp</button>`:""}</div></div>`).join("")}</div>`;
+  }
+  function draftText(i,k){ const m=chat[i]; const parts=[]; let re=/<<<([\s\S]*?)>>>/g, last=0, mm; while((mm=re.exec(m.text))){ if(mm.index>last) parts.push(null); parts.push(mm[1].trim()); last=re.lastIndex; } return parts[k]; }
+  function render(){
+    const box=$("aiMsgs");
+    box.innerHTML = chat.length ? chat.map(renderMsg).join("") + (busy?`<div class="ai-msg bot typing"><i></i><i></i><i></i></div>`:"") : `<div class="ai-empty">
+      <div class="ai-orb">✦</div><b>Como posso ajudar?</b><p>Eu conheço seu funil, seus retornos e a última busca.${focusLead?` Agora estou focado em <b>${esc(focusLead.name)}</b>.`:""}</p></div>`;
+    box.scrollTop=box.scrollHeight;
+    $("aiFocus").innerHTML = focusLead ? `<span>Lead em foco: <b>${esc(focusLead.name)}</b></span><button data-ai-unfocus title="Tirar o foco">✕</button>` : "";
+    $("aiFocus").hidden=!focusLead;
+    const quick = focusLead ? [["✍️ Primeira mensagem","Escreva uma primeira mensagem de WhatsApp personalizada para este lead."],["🔁 Follow-up","Escreva uma mensagem de follow-up para este lead, considerando o histórico."],["💬 \"Tá caro\"","O cliente disse que está caro. Como respondo? Escreva a resposta pronta."],["💡 Ideias pro site","Que seções, textos e diferenciais o site deste cliente deveria ter?"],["🎯 Próximo passo","Qual o melhor próximo passo com este lead e quando?"]]
+      : [["📅 O que fazer hoje","Com base no meu funil e nos retornos, o que devo fazer hoje? Liste em ordem de prioridade."],["🏆 Melhores leads","Quais leads da última busca e do funil têm mais chance de fechar? Por quê?"],["💬 Responder objeção","Me dê respostas curtas para as objeções mais comuns: 'tá caro', 'já tenho Instagram', 'vou pensar'."],["💰 Quanto cobrar","Sugira uma tabela simples de preços para sites de pequenas empresas, com o que entra em cada pacote."],["📈 Resumo do funil","Faça um resumo do meu funil e diga onde estou perdendo clientes."]];
+    $("aiQuick").innerHTML=quick.map(([l,q])=>`<button data-ai-q="${esc(q)}">${l}</button>`).join("");
+    const c=cfg(); $("aiNoKey").hidden=!!c.key; $("aiForm").hidden=!c.key;
+  }
+  async function send(text){
+    text=String(text||"").trim().slice(0,4000); if(!text||busy) return;
+    const c=cfg(); if(!c.key){ openSettings(); return; }
+    chat.push({role:"user",text}); busy=true; render();
+    try{
+      const hist=chat.filter(m=>m.role==="user"||m.role==="bot").slice(-12).map(m=>({role:m.role==="user"?"user":"model",text:m.text}));
+      const out=await callAI(c,hist);
+      chat.push({role:"bot",text:out,lead:focusLead});
+    }catch(e){ chat.push({role:"error",text:e.message||"Não foi possível falar com a IA."}); }
+    busy=false; render();
+  }
+  function openSettings(){
+    const c=cfg(), p=PROVIDERS[c.provider];
+    $("aiSet").hidden=false;
+    $("aiProv").value=c.provider; $("aiKey").value=c.key; $("aiModel").value=c.model;
+    $("aiKeyHint").innerHTML=`${esc(p.keyHint)} · <a href="${p.keyUrl}" target="_blank" rel="noopener noreferrer">pegar minha chave</a>`;
+    $("aiModel").placeholder="Automático ("+p.models[0]+")";
+  }
+  function open(lead){
+    if(lead && (!focusLead || focusLead.id!==lead.id)){ focusLead=lead; chat=[]; }
+    document.documentElement.classList.add("ai-open"); render(); setTimeout(()=>{ const i=$("aiInput"); if(i&&!$("aiForm").hidden) i.focus(); },120);
+  }
+  function close(){ document.documentElement.classList.remove("ai-open"); }
+  window.hzAI=open;
+
+  /* ---------- eventos ---------- */
+  $("aiFab").onclick=()=>document.documentElement.classList.contains("ai-open")?close():open();
+  $("aiClose").onclick=close;
+  $("aiGear").onclick=()=>$("aiSet").hidden?openSettings():($("aiSet").hidden=true);
+  $("aiSetupBtn").onclick=openSettings;
+  $("aiNew").onclick=()=>{ chat=[]; render(); };
+  $("aiProv").onchange=()=>{ const c=cfg(); c.provider=$("aiProv").value; c.model=""; saveCfg(c); openSettings(); };
+  $("aiSave").onclick=async()=>{
+    const c={provider:$("aiProv").value,key:$("aiKey").value.trim(),model:$("aiModel").value.trim()};
+    if(c.key && !/^[\w\-.]{20,}$/.test(c.key)){ $("aiSetMsg").textContent="Essa chave parece incompleta."; return; }
+    saveCfg(c); $("aiSetMsg").textContent=c.key?"Testando…":"Chave removida.";
+    if(!c.key){ render(); return; }
+    try{ await callAI(c,[{role:"user",text:"Responda só: ok"}]); $("aiSetMsg").textContent="✓ Funcionando!"; setTimeout(()=>{ $("aiSet").hidden=true; render(); },700); }
+    catch(e){ $("aiSetMsg").textContent="✕ "+e.message; }
+  };
+  $("aiForm").addEventListener("submit",e=>{ e.preventDefault(); const v=$("aiInput").value; $("aiInput").value=""; autoGrow(); send(v); });
+  const autoGrow=()=>{ const t=$("aiInput"); t.style.height="auto"; t.style.height=Math.min(140,t.scrollHeight)+"px"; };
+  $("aiInput").addEventListener("input",autoGrow);
+  $("aiInput").addEventListener("keydown",e=>{ if(e.key==="Enter"&&!e.shiftKey){ e.preventDefault(); $("aiForm").requestSubmit?$("aiForm").requestSubmit():$("aiForm").dispatchEvent(new Event("submit")); } });
+  $("aiPanel").addEventListener("click",async e=>{
+    const q=e.target.closest("[data-ai-q]"); if(q){ send(q.dataset.aiQ); return; }
+    if(e.target.closest("[data-ai-unfocus]")){ focusLead=null; chat=[]; render(); return; }
+    const cp=e.target.closest("[data-ai-copy]"); if(cp){ const [i,k]=cp.dataset.aiCopy.split(":").map(Number); await copyText(draftText(i,k)); toast("Mensagem copiada"); return; }
+    const wa=e.target.closest("[data-ai-wa]"); if(wa){ const [i,k]=wa.dataset.aiWa.split(":").map(Number); const m=chat[i], l=m.lead, n=waNumber(l.phone); if(!n) return;
+      const a=document.createElement("a"); a.href=`https://wa.me/${n}?text=${encodeURIComponent(draftText(i,k))}`; a.target="_blank"; a.rel="noopener noreferrer"; document.body.appendChild(a); a.click(); a.remove();
+      addLog(l,"wa","Mensagem escrita com a IA"); const st=statusOf(l.id); if((st==="novo"||st==="verificar")&&prefs().autoContact!==false) upsert(l,{status:"contatado"}); refreshAll(); toast("Contato registrado"); }
+  });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&document.documentElement.classList.contains("ai-open")&&!$("modal").classList.contains("on")) close(); });
+  render();
 })();
 </script>
 <script>
