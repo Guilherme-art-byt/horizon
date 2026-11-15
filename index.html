@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-W0UmfKBd0PLxYmA9e82ynh4Qbac/PpFSevo3gW7Fclw=' 'sha256-FnNG2kKGFnh/ebTgxQiB06BIWsSnZ7eNQd8jitPd9vM=' 'sha256-QzrI95wEpY5LcvXLbGUUXNfzh22UiblLhFVEB/LYfao=' 'sha256-OoIddaAsVxwjmHw/0w7RZ/NGY6STHWdKBCpvQtiHvR0=' 'sha256-xUTQ/k5S8myhBhcNU3//seXC5T54HV/+wfTnPMxeaS8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self' https://generativelanguage.googleapis.com https://api.anthropic.com https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; media-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-W0UmfKBd0PLxYmA9e82ynh4Qbac/PpFSevo3gW7Fclw=' 'sha256-nz0USLJ6JiQPMv5k5iEvtcGS39bct36w6rcsI5zZ3EA=' 'sha256-QzrI95wEpY5LcvXLbGUUXNfzh22UiblLhFVEB/LYfao=' 'sha256-OoIddaAsVxwjmHw/0w7RZ/NGY6STHWdKBCpvQtiHvR0=' 'sha256-xUTQ/k5S8myhBhcNU3//seXC5T54HV/+wfTnPMxeaS8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self' https://generativelanguage.googleapis.com https://api.anthropic.com https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; media-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -610,10 +610,49 @@ button.primary:hover{box-shadow:0 0 26px -2px color-mix(in srgb,var(--accent) 90
 .ai-nokey p{margin:0 0 10px;color:var(--muted);font-size:13.5px}
 @media (max-width:600px){.ai-panel{top:0;right:0;bottom:0;width:100vw;border-radius:0}.ai-fab{right:14px;bottom:14px}}
 @media (prefers-reduced-motion:reduce){.ai-fab span,.ai-dot{animation:none}}
+
+/* ================== mais tecnológico ================== */
+.scanline{position:fixed;left:0;right:0;top:0;height:2px;z-index:90;pointer-events:none;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.7;animation:scan 4.5s ease-in-out infinite}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.searching .scanline{animation-duration:1.2s;opacity:1}
+#typer::after{content:"▍";color:var(--accent);margin-left:1px;animation:blink 1s steps(1) infinite}
+/* abas numeradas */
+.tabs{counter-reset:tab}
+.tab{counter-increment:tab}
+.tab::before{content:counter(tab,decimal-leading-zero);font-size:10px;color:var(--muted);margin-right:6px;opacity:.7}
+.tab.on::before{color:var(--accent);opacity:1}
+/* títulos de painel */
+.panel>h3,.col h4{letter-spacing:-.01em}
+.panel>h3::before{content:"// ";font-family:var(--mono);color:var(--accent);font-weight:600}
+.panel>h3{font-family:var(--mono);font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+/* cartão do lead: código + cantos de mira ao passar o mouse */
+.lid{margin-left:auto;font:500 10.5px var(--mono);color:var(--muted);opacity:.0;transition:opacity .2s;white-space:nowrap}
+.lead:hover .lid{opacity:.8}
+.lead::before,.lead::after{content:"";position:absolute;width:12px;height:12px;border:solid var(--accent);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+.lead::before{top:6px;left:6px;border-width:2px 0 0 2px;transform:translate(4px,4px)}
+.lead::after{bottom:6px;right:6px;border-width:0 2px 2px 0;transform:translate(-4px,-4px)}
+.lead:hover::before,.lead:hover::after{opacity:.9;transform:none}
+.lead h3{display:flex}
+/* indicadores estilo HUD */
+.kpi::after{content:"";position:absolute;right:10px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.5;box-shadow:0 0 8px var(--accent)}
+.kpi b{font-variant-numeric:tabular-nums}
+.kpi span{display:block;margin-top:2px}
+/* busca */
+#go{font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+#go::before{content:"▶ ";font-size:10px;vertical-align:1px}
+.chips .chip.on::before{content:"✓ ";font-weight:700}
+/* funil */
+.col h4 .badge::before{content:"["}.col h4 .badge::after{content:"]"}
+.col h4 .badge{background:none!important;padding:0}
+.tab{padding:9px 10px}
+@media (max-width:1200px){.tab::before{display:none}}
+@media (prefers-reduced-motion:reduce){.scanline,#typer::after{animation:none}.scanline{display:none}}
+@media (max-width:600px){.lid{display:none}.tab::before{display:none}}
 </style>
 </head>
 <body>
 
+<div class="scanline" aria-hidden="true"></div>
 <header>
   <div class="brand">
     <div class="logo3d" id="logo3d" title="Horizon"><div class="cube">
@@ -621,7 +660,7 @@ button.primary:hover{box-shadow:0 0 26px -2px color-mix(in srgb,var(--accent) 90
     </div></div>
     <div>
       <h1><span>Horizon</span></h1>
-      <p class="sub">Empresas sem site, prontas para virar clientes.</p>
+      <p class="sub"><span id="typer">Empresas sem site, prontas para virar clientes.</span></p>
       <div class="sysbar" aria-live="off"><span class="live"><i></i>online</span><span id="sysLeads">0 leads</span><span id="sysLast">nenhuma busca ainda</span><span id="sysClock"></span></div>
     </div>
   </div>
@@ -676,8 +715,8 @@ button.primary:hover{box-shadow:0 0 26px -2px color-mix(in srgb,var(--accent) 90
   <button class="tab" data-tab="messages">Mensagens</button>
   <button class="tab" data-tab="help">⚙️ Ajustes</button>
   <div class="spacer"></div>
-  <button data-add-lead class="ghost-btn">＋ Adicionar empresa</button>
-  <button id="exportBtn" class="ghost-btn">Exportar CSV</button>
+  <button data-add-lead class="ghost-btn" title="Adicionar empresa manualmente">＋ Empresa</button>
+  <button id="exportBtn" class="ghost-btn" title="Exportar a lista em CSV (Excel)">⇩ CSV</button>
 </nav>
 
 <!-- RESULTADOS -->
@@ -1336,7 +1375,7 @@ function leadCard(l, opts={}){
     <div class="lc-top">
       ${opts.noCheck?"":`<input type="checkbox" class="chk" data-act="sel" ${selected.has(l.id)?"checked":""} aria-label="Selecionar">`}
       <div class="lc-main">
-        <h3><i class="dot" style="background:${STATUSES[st].c}" title="${STATUSES[st].label}"></i>${esc(l.name)}</h3>
+        <h3><i class="dot" style="background:${STATUSES[st].c}" title="${STATUSES[st].label}"></i>${esc(l.name)}<span class="lid">#${esc(l.id)} · ${String(l.score).padStart(2,"0")}/08</span></h3>
         <div class="meta">${meta||"Sem endereço ou telefone"}</div>
         ${tags.length?`<div class="tags">${tags.join("")}</div>`:""}
       </div>
@@ -1648,7 +1687,29 @@ function renderKpis(){
     k("i3",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>', brl(pipe), "em negociação") +
     k("i4",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>', brl(won), `fechado · ${closed.length} cliente${closed.length===1?"":"s"}`) +
     k("i5",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>', f.filter(x=>x.follow&&x.follow<=t&&!DONE.includes(x.status)).length, `retornos para hoje · conversão ${conv}%`);
+  countUp($("kpis"));
 }
+function countUp(root){
+  if(reduceMotion) return;
+  root.querySelectorAll(".kpi b").forEach(b=>{
+    const txt=b.textContent, m=txt.match(/^(\D*)([\d.]+)(.*)$/); if(!m) return;
+    const target=Number(m[2].replace(/\./g,"")); if(!target||target>1e7) return;
+    const prev=Number(b.dataset.v||0); b.dataset.v=target; if(prev===target) return;
+    const t0=performance.now(), dur=650, fmt=v=>m[1]+Math.round(v).toLocaleString("pt-BR")+m[3];
+    const step=t=>{ const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3); b.textContent=fmt(prev+(target-prev)*e); if(k<1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+}
+(function typer(){
+  const el=$("typer"); if(!el||reduceMotion) return;
+  const lines=["Empresas sem site, prontas para virar clientes.","Busque. Aborde. Feche.","Seu radar de clientes locais."];
+  let i=0,j=lines[0].length,del=true;
+  const tick=()=>{ const s=lines[i];
+    if(del){ j--; if(j<=0){ del=false; i=(i+1)%lines.length; } }
+    else { j++; if(j>=lines[i].length){ del=true; el.textContent=lines[i]; return setTimeout(tick,4200); } }
+    el.textContent=lines[del?i:i].slice(0,Math.max(0,j)); setTimeout(tick,del?28:55); };
+  setTimeout(tick,4200);
+})();
 function updateBadges(){ if(typeof sysbar==="function") try{ sysbar(); }catch(e){}
   $("bRes").textContent=results.length; $("bFun").textContent=funnelLeads().length;
   const due=reminderLeads().filter(x=>x.follow<=today()).length;
