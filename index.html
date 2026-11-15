@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-YH9rvvzbzRjVY5b856A8om2NJ7D2uWna/Gw0kaI5o58=' 'sha256-jnLLq2O9VoeSm/OEXZg8QFcHjTu91Uf5vCYK7qRZ2pE=' 'sha256-jDrPdysk2G6QMGu7xHAVG8YIHkZLP0PLCUIse5y8H4I=' 'sha256-xUTQ/k5S8myhBhcNU3//seXC5T54HV/+wfTnPMxeaS8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self' https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; media-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-W0UmfKBd0PLxYmA9e82ynh4Qbac/PpFSevo3gW7Fclw=' 'sha256-zmTpc/WWaS0tiTW5O+NRyejq0efUhpMgbZ28yY379mQ=' 'sha256-QzrI95wEpY5LcvXLbGUUXNfzh22UiblLhFVEB/LYfao=' 'sha256-xUTQ/k5S8myhBhcNU3//seXC5T54HV/+wfTnPMxeaS8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org; connect-src 'self' https://nominatim.openstreetmap.org https://overpass-api.de https://overpass.kumi.systems https://maps.mail.ru; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; media-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -12,7 +12,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
-<script>try{var _t=localStorage.getItem("cacaleads-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=_t;}catch(e){document.documentElement.dataset.theme="light";}</script>
+<script>try{var _t=localStorage.getItem("cacaleads-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=_t;var _a=localStorage.getItem("horizon-accent");if(_a)document.documentElement.dataset.accent=_a;}catch(e){document.documentElement.dataset.theme="light";}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="vendor/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H">
@@ -365,6 +365,31 @@ html.cloud .local-only{display:none!important}
   .tab{white-space:nowrap}
 }
 
+
+/* cores de destaque */
+[data-accent=azul]{--accent:#2563eb;--accent-deep:#1e40af;--accent-soft:#e3ecff;--grad:linear-gradient(135deg,#3b82f6,#2563eb)}
+[data-accent=verde]{--accent:#15803d;--accent-deep:#14532d;--accent-soft:#dcfce7;--grad:linear-gradient(135deg,#22c55e,#15803d)}
+[data-accent=laranja]{--accent:#ea580c;--accent-deep:#9a3412;--accent-soft:#ffedd5;--grad:linear-gradient(135deg,#fb923c,#ea580c)}
+[data-accent=rosa]{--accent:#db2777;--accent-deep:#9d174d;--accent-soft:#fce7f3;--grad:linear-gradient(135deg,#f472b6,#db2777)}
+[data-accent=grafite]{--accent:#334155;--accent-deep:#0f172a;--accent-soft:#e2e8f0;--grad:linear-gradient(135deg,#475569,#1e293b)}
+[data-theme=dark][data-accent=azul]{--accent:#60a5fa;--accent-soft:#172554}
+[data-theme=dark][data-accent=verde]{--accent:#4ade80;--accent-soft:#052e16}
+[data-theme=dark][data-accent=laranja]{--accent:#fb923c;--accent-soft:#431407}
+[data-theme=dark][data-accent=rosa]{--accent:#f472b6;--accent-soft:#500724}
+[data-theme=dark][data-accent=grafite]{--accent:#cbd5e1;--accent-soft:#1e293b}
+h1 span{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--accent)}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--card-solid);outline:2px solid transparent;cursor:pointer;padding:0}
+.sw.on{outline-color:var(--ink)}
+.pref-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+.pref-grid .full{grid-column:1/-1}
+.checks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
+.checks label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:500}
+.switch-row{display:flex;flex-direction:column;gap:8px;font-size:13.5px;margin-top:4px}
+.switch-row label{display:flex;gap:8px;align-items:center;cursor:pointer}
+.status-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.link-btn{background:none!important;border:0!important;color:var(--accent)!important;font-weight:600;padding:4px 6px!important;font-size:13px!important}
+
 /* ================== visual minimalista ================== */
 :root{--radius:12px;--shadow:0 1px 2px rgba(20,16,50,.05);--shadow-hi:0 8px 24px -12px rgba(20,16,50,.25);--bg:#f7f7fb}
 [data-theme=dark]{--bg:#0e0d18;--card:#15141f;--card-solid:#15141f;--field:#1b1a27;--line:#262438;--shadow:none;--shadow-hi:0 10px 30px -14px rgba(0,0,0,.8)}
@@ -453,7 +478,7 @@ button.primary:hover{filter:brightness(1.08)}
 .toolbar{gap:8px}
 .toolbar input,.toolbar select{padding:8px 10px;font-size:13.5px}
 .toolbar #q{min-width:200px}
-.toolbar select{max-width:200px}
+.toolbar select{max-width:175px}
 #selPage{padding:8px 12px;font-size:13px}
 .opts{font-size:13.5px;gap:16px}
 #allCats{background:none;border-color:transparent;color:var(--accent);font-weight:600}
@@ -525,7 +550,7 @@ button.primary:hover{filter:brightness(1.08)}
     <button id="allCats" style="font-size:13px;padding:6px 11px">Marcar todas</button>
   </div>
   <div class="progress" id="progress"><i></i></div>
-  <div class="status" id="status"></div>
+  <div class="status-row"><div class="status" id="status"></div><button type="button" id="refreshBtn" class="link-btn" hidden>↻ Atualizar resultado</button></div>
 </section>
 
 <nav class="tabs" id="tabs">
@@ -553,11 +578,27 @@ button.primary:hover{filter:brightness(1.08)}
     <select id="catFilter"><option value="">Todas as categorias</option></select>
     <select id="areaFilter" hidden><option value="">Todos os bairros</option></select>
     <select id="extraFilter">
-      <option value="">Todos</option>
+      <option value="">Qualquer contato</option>
+      <option value="whats">Com WhatsApp (celular)</option>
       <option value="phone">Com telefone</option>
       <option value="social">Só redes sociais</option>
+      <option value="insta">Com Instagram</option>
+      <option value="email">Com e-mail</option>
       <option value="nocontact">Sem nenhum contato</option>
     </select>
+    <select id="infoFilter">
+      <option value="">Qualquer informação</option>
+      <option value="addr">Com endereço</option>
+      <option value="hours">Com horário</option>
+      <option value="noaddr">Sem endereço</option>
+    </select>
+    <select id="minScore">
+      <option value="0">Qualquer nota</option>
+      <option value="3">Nota 3+</option>
+      <option value="5">Nota 5+</option>
+      <option value="7">Nota 7+</option>
+    </select>
+    <button id="clearFilters" class="link-btn" hidden>Limpar filtros</button>
     <button id="selPage">Selecionar página</button>
   </div>
   <div class="mini-stats" id="stats"></div>
@@ -628,6 +669,24 @@ button.primary:hover{filter:brightness(1.08)}
   <div class="set-grid">
     <div>
       <div class="panel">
+        <h3 style="margin:0 0 12px">Preferências</h3>
+        <div class="pref-grid">
+          <div class="fld"><label for="pMode">Área de busca padrão</label><select id="pMode"><option value="area">Limite do lugar</option><option value="radius">Raio ao redor</option></select></div>
+          <div class="fld"><label for="pRadius">Raio padrão (km)</label><input type="number" id="pRadius" min="0.5" max="30" step="0.5"></div>
+          <div class="fld"><label for="pSort">Ordem dos resultados</label><select id="pSort"><option value="score">Melhores leads primeiro</option><option value="name">Nome (A–Z)</option><option value="cat">Tipo de negócio</option></select></div>
+          <div class="fld"><label for="pPer">Empresas por página</label><select id="pPer"><option>15</option><option>30</option><option>60</option><option>100</option></select></div>
+          <div class="fld full"><label for="pCache">Guardar resultados das buscas</label><select id="pCache"><option value="0">Não guardar (sempre buscar de novo)</option><option value="1">Por 1 dia</option><option value="3">Por 3 dias (recomendado)</option><option value="7">Por 7 dias</option></select>
+            <small class="help" style="display:block;margin-top:4px">Repetir uma busca guardada é instantâneo. Use "↻ Atualizar resultado" para buscar de novo.</small></div>
+          <div class="fld full"><label>Cor de destaque</label><div class="swatches" id="pAccent"></div></div>
+          <div class="fld full"><label>Etapas que aparecem no Funil</label><div class="checks" id="pStages"></div></div>
+          <div class="fld full switch-row">
+            <label><input type="checkbox" id="pAuto"> Marcar como "Contatado" ao clicar no WhatsApp</label>
+            <label><input type="checkbox" id="pConfetti"> Comemorar com confete ao fechar um cliente</label>
+          </div>
+        </div>
+        <button id="pClearCache" class="link-btn" style="margin-top:4px">Apagar buscas guardadas</button>
+      </div>
+      <div class="panel">
         <h3 style="margin:0 0 6px">Backup dos seus leads</h3>
         <p class="help" style="margin:0 0 12px">Tudo fica salvo neste navegador. Baixe um backup de vez em quando e use "Importar" para levar os leads a outro aparelho. <span id="lastBackup"></span></p>
         <div class="row">
@@ -688,29 +747,44 @@ button.primary:hover{filter:brightness(1.08)}
 <script src="vendor/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"></script>
 <script>
 /* ================== configuração ================== */
+// Cada nicho lista as etiquetas do OpenStreetMap que ele cobre. true = qualquer valor.
 const CATS = {
-  alimentacao:{label:"Alimentação", sel:['nwr["amenity"~"^(restaurant|fast_food|cafe|bar|pub|ice_cream|food_court)$"]','nwr["shop"~"^(bakery|butcher|confectionery|deli|pastry|greengrocer|beverages|coffee|cheese|seafood)$"]']},
-  beleza:{label:"Beleza e estética", sel:['nwr["shop"~"^(hairdresser|beauty|cosmetics|massage|tattoo|perfumery|nail_salon)$"]','nwr["amenity"="spa"]']},
-  saude:{label:"Saúde", sel:['nwr["amenity"~"^(dentist|clinic|doctors|pharmacy)$"]','nwr["healthcare"~"^(physiotherapist|psychotherapist|optometrist|laboratory|clinic|dentist|doctor)$"]','nwr["shop"~"^(optician|medical_supply|hearing_aids)$"]']},
-  auto:{label:"Automotivo", sel:['nwr["shop"~"^(car_repair|tyres|car_parts|car|motorcycle|motorcycle_repair)$"]','nwr["amenity"="car_wash"]']},
-  pet:{label:"Pet", sel:['nwr["shop"~"^(pet|pet_grooming|agrarian)$"]','nwr["amenity"="veterinary"]']},
-  comercio:{label:"Lojas", sel:['nwr["shop"~"^(clothes|shoes|furniture|hardware|doityourself|electronics|mobile_phone|computer|gift|jewelry|florist|books|stationery|toys|sports|variety_store|bag|boutique|fabric|houseware|interior_decoration|paint|bicycle|garden_centre|kitchen|lighting|second_hand|tailor|copyshop|photo)$"]']},
-  mercado:{label:"Mercados", sel:['nwr["shop"~"^(convenience|supermarket|general|kiosk|alcohol|frozen_food)$"]']},
-  servicos:{label:"Serviços e ofícios", sel:['nwr["craft"]','nwr["shop"~"^(laundry|dry_cleaning|locksmith|funeral_directors|travel_agency|printing)$"]']},
-  escritorios:{label:"Escritórios", sel:['nwr["office"~"^(lawyer|accountant|estate_agent|architect|insurance|consulting|notary|tax_advisor|surveyor|engineer|financial|advertising_agency|it)$"]']},
-  fitness:{label:"Academias e esporte", sel:['nwr["leisure"~"^(fitness_centre|sports_centre|dance)$"]','nwr["amenity"="dojo"]']},
-  educacao:{label:"Cursos e escolas", sel:['nwr["amenity"~"^(driving_school|language_school|music_school|kindergarten|childcare|prep_school)$"]']},
-  hospedagem:{label:"Hospedagem", sel:['nwr["tourism"~"^(hotel|guest_house|hostel|motel|apartment|chalet)$"]']},
+  alimentacao:{label:"Alimentação", t:{amenity:["restaurant","fast_food","cafe","bar","pub","ice_cream","food_court"], shop:["bakery","butcher","confectionery","deli","pastry","greengrocer","beverages","coffee","cheese","seafood","chocolate"]}},
+  beleza:{label:"Beleza e estética", t:{shop:["hairdresser","beauty","cosmetics","massage","tattoo","perfumery","nail_salon"], amenity:["spa"]}},
+  saude:{label:"Saúde", t:{amenity:["dentist","clinic","doctors","pharmacy"], healthcare:["physiotherapist","psychotherapist","optometrist","laboratory","clinic","dentist","doctor","speech_therapist","nutrition_counselling"], shop:["optician","medical_supply","hearing_aids"]}},
+  auto:{label:"Automotivo", t:{shop:["car_repair","tyres","car_parts","car","motorcycle","motorcycle_repair"], amenity:["car_wash"]}},
+  pet:{label:"Pet", t:{shop:["pet","pet_grooming","agrarian"], amenity:["veterinary"]}},
+  moda:{label:"Moda e acessórios", t:{shop:["clothes","shoes","jewelry","bag","boutique","fabric","watches","fashion_accessories","tailor","sewing"]}},
+  casa:{label:"Casa e decoração", t:{shop:["furniture","interior_decoration","houseware","kitchen","lighting","bed","curtain","carpet","garden_centre","florist","appliance"]}},
+  construcao:{label:"Construção e reformas", t:{shop:["hardware","doityourself","paint","trade","glaziery","tiles","bathroom_furnishing","flooring"], craft:["builder","electrician","plumber","painter","roofer","carpenter","metal_construction","tiler","plasterer","glaziery","hvac","stonemason","window_construction"], office:["construction_company"]}},
+  tecnologia:{label:"Tecnologia e celulares", t:{shop:["electronics","mobile_phone","computer","video_games","repair"], craft:["electronics_repair"], office:["it","telecommunication"]}},
+  comercio:{label:"Outras lojas", t:{shop:["gift","books","stationery","toys","sports","variety_store","second_hand","bicycle","music","musical_instrument","art","craft","party","religion","outdoor","fishing"]}},
+  mercado:{label:"Mercados", t:{shop:["convenience","supermarket","general","kiosk","alcohol","frozen_food","farm"]}},
+  eventos:{label:"Fotografia e eventos", t:{shop:["photo"], craft:["photographer","caterer"], amenity:["events_venue"], office:["event_management"]}},
+  imobiliarias:{label:"Imobiliárias", t:{office:["estate_agent","property_management"]}},
+  escritorios:{label:"Contabilidade e jurídico", t:{office:["lawyer","accountant","tax_advisor","notary","insurance","financial","consulting","architect","engineer","surveyor","advertising_agency","employment_agency"]}},
+  servicos:{label:"Serviços e ofícios", t:{craft:true, shop:["laundry","dry_cleaning","locksmith","funeral_directors","printing","copyshop","shoe_repair","key_cutter"]}},
+  fitness:{label:"Academias e esporte", t:{leisure:["fitness_centre","sports_centre","dance"], amenity:["dojo"]}},
+  educacao:{label:"Cursos e escolas", t:{amenity:["driving_school","language_school","music_school","kindergarten","childcare","prep_school","training"]}},
+  hospedagem:{label:"Hospedagem e turismo", t:{tourism:["hotel","guest_house","hostel","motel","apartment","chalet"], shop:["travel_agency"]}},
+  igrejas:{label:"Igrejas e templos", t:{amenity:["place_of_worship"]}},
 };
 const DEFAULT_ON = ["alimentacao","beleza","saude","auto","pet"];
 const STATUSES = {
   novo:{label:"Novo",c:"#8b8aa8"}, verificar:{label:"Verificar site",c:"#f59e0b"}, contatado:{label:"Contatado",c:"#3b82f6"},
-  respondeu:{label:"Respondeu",c:"#06b6d4"}, interessado:{label:"Interessado",c:"#8b5cf6"}, fechado:{label:"Fechado ✓",c:"#22c55e"}, descartado:{label:"Descartado",c:"#ef4444"}
+  respondeu:{label:"Respondeu",c:"#06b6d4"}, interessado:{label:"Interessado",c:"#8b5cf6"}, proposta:{label:"Proposta enviada",c:"#d946ef"},
+  negociando:{label:"Negociando",c:"#f97316"}, fechado:{label:"Fechado ✓",c:"#22c55e"}, posvenda:{label:"Pós-venda",c:"#14b8a6"},
+  perdido:{label:"Perdido",c:"#64748b"}, descartado:{label:"Descartado",c:"#ef4444"}
 };
+const LOGK={wa:"💬 WhatsApp",call:"📞 Ligação",visit:"🚶 Visita",email:"✉️ E-mail",note:"📝 Anotação"};
+const WORKED=["contatado","respondeu","interessado","proposta","negociando","fechado","posvenda","perdido"]; // já houve contato
+const OPEN_DEAL=["respondeu","interessado","proposta","negociando"]; // em negociação
+const DONE=["fechado","posvenda","perdido","descartado"]; // sem retorno pendente
 const OVERPASS = ["https://overpass-api.de/api/interpreter","https://overpass.kumi.systems/api/interpreter","https://maps.mail.ru/osm/tools/overpass/api/interpreter"];
 let STORE_KEY = "horizon-pessoal";
-const PAGE = 30;
-const TYPE_PT = {restaurant:"Restaurante",fast_food:"Lanchonete",cafe:"Café",bar:"Bar",pub:"Bar",ice_cream:"Sorveteria",bakery:"Padaria",butcher:"Açougue",confectionery:"Doceria",pastry:"Confeitaria",deli:"Empório",greengrocer:"Hortifrúti",hairdresser:"Salão / Barbearia",beauty:"Estética",cosmetics:"Cosméticos",massage:"Massagem",tattoo:"Estúdio de tatuagem",nail_salon:"Manicure",dentist:"Dentista",clinic:"Clínica",doctors:"Consultório",doctor:"Consultório",pharmacy:"Farmácia",physiotherapist:"Fisioterapia",psychotherapist:"Psicologia",laboratory:"Laboratório",optician:"Ótica",car_repair:"Oficina mecânica",tyres:"Borracharia / Pneus",car_parts:"Autopeças",car:"Concessionária / Carros",motorcycle:"Motos",motorcycle_repair:"Oficina de motos",car_wash:"Lava-rápido",pet:"Pet shop",pet_grooming:"Banho e tosa",agrarian:"Agropecuária",veterinary:"Veterinário",clothes:"Roupas",shoes:"Calçados",furniture:"Móveis",hardware:"Material de construção",doityourself:"Material de construção",electronics:"Eletrônicos",mobile_phone:"Celulares",computer:"Informática",gift:"Presentes",jewelry:"Joalheria",florist:"Floricultura",books:"Livraria",stationery:"Papelaria",toys:"Brinquedos",sports:"Esportes",variety_store:"Variedades",convenience:"Conveniência",supermarket:"Supermercado",general:"Mercearia",kiosk:"Banca",alcohol:"Adega",laundry:"Lavanderia",dry_cleaning:"Lavanderia",locksmith:"Chaveiro",travel_agency:"Agência de viagens",printing:"Gráfica",copyshop:"Copiadora",lawyer:"Advocacia",accountant:"Contabilidade",estate_agent:"Imobiliária",architect:"Arquitetura",insurance:"Seguros",consulting:"Consultoria",notary:"Cartório",fitness_centre:"Academia",sports_centre:"Centro esportivo",dance:"Escola de dança",dojo:"Artes marciais",driving_school:"Autoescola",language_school:"Escola de idiomas",music_school:"Escola de música",kindergarten:"Educação infantil",childcare:"Creche",hotel:"Hotel",guest_house:"Pousada",hostel:"Hostel",motel:"Motel",spa:"Spa",tailor:"Costura",photo:"Fotografia",bicycle:"Bicicletaria",paint:"Tintas",bag:"Bolsas",boutique:"Boutique",fabric:"Tecidos",garden_centre:"Jardinagem",carpenter:"Marcenaria",electrician:"Eletricista",plumber:"Encanador",shoemaker:"Sapateiro",upholsterer:"Estofaria",glaziery:"Vidraçaria",metal_construction:"Serralheria",photographer:"Fotógrafo"};
+let PAGE = 30;
+const prefs = () => (window.__hzStore&&window.__hzStore.prefs)||{};
+const TYPE_PT = {chocolate:"Chocolateria",speech_therapist:"Fonoaudiologia",nutrition_counselling:"Nutrição",watches:"Relojoaria",fashion_accessories:"Acessórios",sewing:"Aviamentos",bed:"Colchões",curtain:"Cortinas",carpet:"Tapetes",appliance:"Eletrodomésticos",trade:"Materiais",tiles:"Pisos e revestimentos",bathroom_furnishing:"Banheiros",flooring:"Pisos",builder:"Construtora",painter:"Pintor",roofer:"Telhados",tiler:"Azulejista",plasterer:"Gesseiro",hvac:"Ar-condicionado",stonemason:"Marmoraria",window_construction:"Esquadrias",construction_company:"Construtora",video_games:"Games",repair:"Assistência técnica",electronics_repair:"Assistência técnica",telecommunication:"Telecom",music:"Discos",musical_instrument:"Instrumentos musicais",art:"Arte",craft:"Artesanato",party:"Artigos de festa",religion:"Artigos religiosos",outdoor:"Aventura",fishing:"Pesca",farm:"Produtos da roça",caterer:"Buffet",events_venue:"Espaço de eventos",event_management:"Eventos",property_management:"Administradora de imóveis",employment_agency:"Agência de empregos",shoe_repair:"Sapataria",key_cutter:"Chaveiro",training:"Treinamentos",place_of_worship:"Igreja / Templo",tax_advisor:"Contabilidade",financial:"Financeira",engineer:"Engenharia",surveyor:"Topografia",advertising_agency:"Agência de publicidade",restaurant:"Restaurante",fast_food:"Lanchonete",cafe:"Café",bar:"Bar",pub:"Bar",ice_cream:"Sorveteria",bakery:"Padaria",butcher:"Açougue",confectionery:"Doceria",pastry:"Confeitaria",deli:"Empório",greengrocer:"Hortifrúti",hairdresser:"Salão / Barbearia",beauty:"Estética",cosmetics:"Cosméticos",massage:"Massagem",tattoo:"Estúdio de tatuagem",nail_salon:"Manicure",dentist:"Dentista",clinic:"Clínica",doctors:"Consultório",doctor:"Consultório",pharmacy:"Farmácia",physiotherapist:"Fisioterapia",psychotherapist:"Psicologia",laboratory:"Laboratório",optician:"Ótica",car_repair:"Oficina mecânica",tyres:"Borracharia / Pneus",car_parts:"Autopeças",car:"Concessionária / Carros",motorcycle:"Motos",motorcycle_repair:"Oficina de motos",car_wash:"Lava-rápido",pet:"Pet shop",pet_grooming:"Banho e tosa",agrarian:"Agropecuária",veterinary:"Veterinário",clothes:"Roupas",shoes:"Calçados",furniture:"Móveis",hardware:"Material de construção",doityourself:"Material de construção",electronics:"Eletrônicos",mobile_phone:"Celulares",computer:"Informática",gift:"Presentes",jewelry:"Joalheria",florist:"Floricultura",books:"Livraria",stationery:"Papelaria",toys:"Brinquedos",sports:"Esportes",variety_store:"Variedades",convenience:"Conveniência",supermarket:"Supermercado",general:"Mercearia",kiosk:"Banca",alcohol:"Adega",laundry:"Lavanderia",dry_cleaning:"Lavanderia",locksmith:"Chaveiro",travel_agency:"Agência de viagens",printing:"Gráfica",copyshop:"Copiadora",lawyer:"Advocacia",accountant:"Contabilidade",estate_agent:"Imobiliária",architect:"Arquitetura",insurance:"Seguros",consulting:"Consultoria",notary:"Cartório",fitness_centre:"Academia",sports_centre:"Centro esportivo",dance:"Escola de dança",dojo:"Artes marciais",driving_school:"Autoescola",language_school:"Escola de idiomas",music_school:"Escola de música",kindergarten:"Educação infantil",childcare:"Creche",hotel:"Hotel",guest_house:"Pousada",hostel:"Hostel",motel:"Motel",spa:"Spa",tailor:"Costura",photo:"Fotografia",bicycle:"Bicicletaria",paint:"Tintas",bag:"Bolsas",boutique:"Boutique",fabric:"Tecidos",garden_centre:"Jardinagem",carpenter:"Marcenaria",electrician:"Eletricista",plumber:"Encanador",shoemaker:"Sapateiro",upholsterer:"Estofaria",glaziery:"Vidraçaria",metal_construction:"Serralheria",photographer:"Fotógrafo"};
 const DEFAULT_TPL = [
   "Olá! Tudo bem? Vi a {nome} aqui em {cidade} e notei que vocês ainda não têm um site próprio. Eu crio sites profissionais, rápidos e com botão direto para o WhatsApp, para os clientes encontrarem vocês no Google. Posso te mostrar um exemplo de como ficaria o site da {nome}, sem compromisso?",
   "Oi! Passando para retomar nossa conversa sobre o site da {nome}. Preparei uma ideia de como ele ficaria, com fotos, horário, localização e botão de WhatsApp. Quer que eu te mande para você dar uma olhada?",
@@ -733,7 +807,7 @@ let results = [], page = 1, currentCity = "", selected = new Set(), map = null, 
     if(best) localStorage.setItem(STORE_KEY,best);
   }catch(e){}
 })();
-let store = loadStore();
+let store = loadStore(); window.__hzStore=store;
 const $ = id => document.getElementById(id);
 /* ---------- segurança: tudo que vem do armazenamento, do mapa ou de backups é validado ---------- */
 function HAS(o,k){ return Object.prototype.hasOwnProperty.call(o,k); }
@@ -749,7 +823,7 @@ function cleanLead(d){
     lat:(lat!==null&&Math.abs(lat)<=90)?lat:null, lon:(lon!==null&&Math.abs(lon)<=180)?lon:null,
     brand:!!d.brand, city:str(d.city,120), area:str(d.area,80), manual:!!d.manual, score:Math.max(0,Math.min(8,Math.round(num(d.score)||0)))};
 }
-const LOGK={wa:"💬 WhatsApp",call:"📞 Ligação",visit:"🚶 Visita",email:"✉️ E-mail",note:"📝 Anotação"};
+
 function cleanRec(r){
   if(!r||typeof r!=="object") return null;
   const data=cleanLead(r.data); if(!data) return null;
@@ -776,11 +850,16 @@ function storeFrom(s){
     tpls:cleanTpls(s.tpls) || [typeof s.tpl==="string"?s.tpl.slice(0,2000):DEFAULT_TPL[0], DEFAULT_TPL[1], DEFAULT_TPL[2]],
     lastBackup:num(s.lastBackup)||0 };
   if(Array.isArray(s.cats)) out.cats=s.cats.filter(k=>HAS(CATS,k));
+  const P=s.prefs&&typeof s.prefs==="object"?s.prefs:{};
+  out.prefs={ mode:P.mode==="radius"?"radius":"area", radius:Math.max(.5,Math.min(30,num(P.radius)||3)), sort:["score","name","cat"].includes(P.sort)?P.sort:"score",
+    perPage:[15,30,60,100].includes(num(P.perPage))?num(P.perPage):30, noBrands:P.noBrands!==false, onlyPhone:!!P.onlyPhone, hideKnown:P.hideKnown!==false,
+    autoContact:P.autoContact!==false, confetti:P.confetti!==false, cacheDays:[0,1,3,7].includes(num(P.cacheDays))?num(P.cacheDays):3,
+    stages:Array.isArray(P.stages)?P.stages.filter(k=>HAS(STATUSES,k)&&k!=="novo"):null };
   out.nicheTpls={}; if(s.nicheTpls&&typeof s.nicheTpls==="object") for(const k of Object.keys(s.nicheTpls)){ if(HAS(CATS,k)){ const t=cleanTpls(s.nicheTpls[k]); if(t) out.nicheTpls[k]=t; } }
   if(s.me&&typeof s.me==="object") out.me={name:str(s.me.name,80), phone:str(s.me.phone,40), email:str(s.me.email,120), items:str(s.me.items,1500), days:Math.max(1,Math.min(365,Math.round(num(s.me.days)||7))), valid:Math.max(1,Math.min(90,Math.round(num(s.me.valid)||15)))};
   return out;
 }
-function saveStore(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(store)); }catch(e){} }
+function saveStore(){ window.__hzStore=store; try{ localStorage.setItem(STORE_KEY, JSON.stringify(store)); }catch(e){} }
 function esc(s){ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),2000); }
 const brl = v => (Number(v)||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
@@ -872,6 +951,7 @@ $("legend").innerHTML = Object.values(STATUSES).map(s=>`<span><i class="dot" sty
 $("mode").onchange=()=>{ $("radiusBox").style.display = $("mode").value==="radius" ? "" : "none"; };
 $("place").addEventListener("keydown", e=>{ if(e.key==="Enter") search(); });
 $("go").onclick = ()=>search();
+$("refreshBtn").onclick = ()=>{ lastSearchAt=0; search(true); };
 
 function renderRecent(){
   $("recent").innerHTML = store.recent.length ? "Buscas recentes: " + store.recent.map(r=>`<button data-r="${esc(r)}">${esc(r)}</button>`).join("") : "";
@@ -881,90 +961,132 @@ function setStatus(msg, err){ const s=$("status"); s.textContent=msg; s.classNam
 function loading(on){ $("go").disabled=on; $("go").classList.toggle("loading",on); $("progress").classList.toggle("on",on); }
 
 /* ================== busca ================== */
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+/* ---- caches: localização (permanente) e resultados (alguns dias) ---- */
+function cacheGet(key){ try{ return JSON.parse(localStorage.getItem(key))||{}; }catch(e){ return {}; } }
+function cacheSet(key,obj){ try{ localStorage.setItem(key,JSON.stringify(obj)); }catch(e){ try{ localStorage.removeItem(key); }catch(_){} } }
+const normQ=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/\s+/g," ").trim();
+let geoQueue=Promise.resolve(), lastGeoAt=0;
 async function geocode(q){
+  const geo=cacheGet("horizon-geo"), k=normQ(q);
+  if(geo[k]) return geo[k];
+  const myTurn=geoQueue.then(async()=>{ const w=lastGeoAt+1100-Date.now(); if(w>0) await sleep(w); lastGeoAt=Date.now(); }); geoQueue=myTurn.catch(()=>{}); await myTurn;
   const r = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=8&countrycodes=br&accept-language=pt-BR&q="+encodeURIComponent(q), {headers:{"Accept":"application/json"}, referrerPolicy:"strict-origin-when-cross-origin"});
   if(!r.ok) throw new Error("Não consegui localizar o lugar (erro "+r.status+").");
   const arr = await r.json();
   if(!arr.length) throw new Error(`"${q}" não foi encontrado. Tente incluir a cidade e o estado, ex.: "Centro, Londrina, PR".`);
-  return arr.find(x=>x.osm_type==="relation" && /boundary|place/.test(x.category||x.class||"")) || arr.find(x=>x.osm_type==="relation") || arr[0];
+  const g = arr.find(x=>x.osm_type==="relation" && /boundary|place/.test(x.category||x.class||"")) || arr.find(x=>x.osm_type==="relation") || arr[0];
+  const a=g.address||{};
+  const slim={osm_type:g.osm_type,osm_id:g.osm_id,lat:g.lat,lon:g.lon,name:g.name,display_name:g.display_name,address:{city:a.city,town:a.town,village:a.village,municipality:a.municipality}};
+  const keys=Object.keys(geo); if(keys.length>150) delete geo[keys[0]];
+  geo[k]=slim; cacheSet("horizon-geo",geo);
+  return slim;
 }
-async function overpass(query){
-  let lastErr;
-  for(const ep of OVERPASS){
-    try{
-      const r = await fetch(ep, {method:"POST", body:"data="+encodeURIComponent(query), headers:{"Content-Type":"application/x-www-form-urlencoded"}});
-      if(r.status===429 || r.status>=500){ lastErr=new Error("Servidor do mapa ocupado ("+r.status+"). Tente de novo em instantes."); continue; }
-      if(!r.ok){ lastErr=new Error("Erro na busca ("+r.status+")"); continue; }
-      const j = await r.json();
-      if(j.remark && /timed out|out of memory/i.test(j.remark) && !(j.elements||[]).length){ lastErr=new Error("A área é grande demais. Busque por bairro ou use o modo Raio."); continue; }
-      return j;
-    }catch(e){ lastErr=e; }
-  }
-  throw lastErr || new Error("Falha na busca.");
+// Pede ao servidor principal; se demorar, pede também aos reservas e fica com o primeiro que responder.
+function overpass(query){
+  const body="data="+encodeURIComponent(query), ctrls=OVERPASS.map(()=>new AbortController());
+  return new Promise((resolve,reject)=>{
+    let done=false, next=0, running=0, lastErr=null, timers=[];
+    const finish=(fn,v)=>{ if(done) return; done=true; timers.forEach(clearTimeout); ctrls.forEach(c=>{ try{c.abort();}catch(e){} }); fn(v); };
+    const launch=()=>{
+      if(done||next>=OVERPASS.length) return;
+      const i=next++; running++;
+      fetch(OVERPASS[i],{method:"POST",body,headers:{"Content-Type":"application/x-www-form-urlencoded"},signal:ctrls[i].signal})
+        .then(async r=>{
+          if(r.status===429||r.status>=500) throw new Error("Servidores do mapa ocupados. Tente de novo em instantes.");
+          if(!r.ok) throw new Error("Erro na busca ("+r.status+")");
+          const j=await r.json();
+          if(j.remark && /timed out|out of memory/i.test(j.remark) && !(j.elements||[]).length) throw Object.assign(new Error("A área é grande demais. Busque por bairro ou use o modo Raio."),{big:true});
+          finish(resolve,j);
+        })
+        .catch(e=>{ if(done||e.name==="AbortError") return; lastErr=lastErr&&lastErr.big?lastErr:e; launch(); })
+        .finally(()=>{ running--; if(!done&&running===0&&next>=OVERPASS.length) finish(reject,lastErr||new Error("Falha na busca.")); });
+    };
+    launch();
+    timers.push(setTimeout(launch,6000), setTimeout(launch,15000), setTimeout(()=>finish(reject,new Error("Os servidores do mapa estão muito lentos agora. Tente de novo em alguns minutos ou busque uma área menor.")),90000));
+  });
 }
-let lastSearchAt=0;
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-async function search(){
+let lastSearchAt=0, searchTimer=null;
+function searchKey(place){ return JSON.stringify([normQ(place),[...activeCats].sort(),$("mode").value,$("mode").value==="radius"?$("radius").value:""]); }
+async function searchPlace(q, onStatus){
+  const g=await geocode(q);
+  const ad=g.address||{};
+  const city=(ad.city||ad.town||ad.village||ad.municipality||g.name||q.split(",")[0]).trim();
+  const area=(g.name||q.split(",")[0]).trim();
+  const ck=searchKey(q), cache=cacheGet("horizon-cache"), hit=cache[ck], ttl=(prefs().cacheDays||0)*864e5;
+  if(hit && ttl && Date.now()-hit.t<ttl) return {area,city,full:g.display_name,leads:hit.leads.map(cleanLead).filter(Boolean),cachedAt:hit.t};
+  let header="[out:json][timeout:60][maxsize:134217728];", clause;
+  if($("mode").value==="radius" || g.osm_type!=="relation"){
+    clause=`(around:${Math.round(Math.min(30,Math.max(.5,parseFloat($("radius").value)||3))*1000)},${Number(g.lat)},${Number(g.lon)})`;
+  } else { if(!/^\d+$/.test(String(g.osm_id))) throw new Error("Resposta inválida do servidor."); header+=`area(${3600000000+Number(g.osm_id)})->.a;`; clause="(area.a)"; }
+  onStatus("Buscando empresas sem site em "+area);
+  const data=await overpass(header+"("+buildQuery([...activeCats],clause)+");out center tags qt;");
+  const leads=[];
+  for(const el of data.elements||[]){ currentCity=city; const raw=toLead(el); raw.area=area; const l=cleanLead(raw); if(l) leads.push(l); }
+  // guarda para a próxima vez (até ~1,5 MB no total)
+  if(ttl){ cache[ck]={t:Date.now(),leads}; const ks=Object.keys(cache).sort((a,b)=>cache[a].t-cache[b].t); while(ks.length>12||JSON.stringify(cache).length>1.5e6){ const k=ks.shift(); if(!k) break; delete cache[k]; } cacheSet("horizon-cache",cache); }
+  return {area,city,full:g.display_name,leads};
+}
+async function search(force){
   const raw = $("place").value.trim().slice(0,400);
-  if(Date.now()-lastSearchAt<4000){ const prev=$("status").textContent, prevErr=$("status").classList.contains("err"); const s=Math.ceil((4000-(Date.now()-lastSearchAt))/1000); setStatus(`Aguarde ${s} s para buscar de novo.`, true); setTimeout(()=>{ if(/^Aguarde/.test($("status").textContent)) setStatus(prev, prevErr); },2500); return; }
+  if(Date.now()-lastSearchAt<3000){ const prev=$("status").textContent, prevErr=$("status").classList.contains("err"); const s=Math.ceil((3000-(Date.now()-lastSearchAt))/1000); setStatus(`Aguarde ${s} s para buscar de novo.`, true); setTimeout(()=>{ if(/^Aguarde/.test($("status").textContent)) setStatus(prev, prevErr); },2500); return; }
   if(!raw){ setStatus("Digite uma cidade ou bairro.", true); $("place").focus(); return; }
-  if(!activeCats.size){ setStatus("Escolha pelo menos uma categoria.", true); return; }
-  const places=[...new Map(raw.split(/[;\n]+/).map(x=>x.trim()).filter(Boolean).map(x=>[x.toLowerCase(),x])).values()];
+  if(!activeCats.size){ setStatus("Escolha pelo menos um nicho.", true); return; }
+  const places=[...new Map(raw.split(/[;\n]+/).map(x=>x.trim()).filter(Boolean).map(x=>[normQ(x),x])).values()];
   if(places.length>8){ setStatus("Busque no máximo 8 bairros por vez.", true); return; }
-  lastSearchAt=Date.now();
-  loading(true);
-  const seen=new Set(), found=[], fails=[], areas=[];
-  const noSite='["name"][!"website"][!"contact:website"][!"url"][!"website:menu"]';
-  const multi=places.length>1;
+  if(force){ const c=cacheGet("horizon-cache"); places.forEach(q=>delete c[searchKey(q)]); cacheSet("horizon-cache",c); }
+  lastSearchAt=Date.now(); loading(true);
+  const t0=Date.now(), multi=places.length>1, stat={}; let label="";
+  const tick=()=>setStatus(`${label} · ${Math.round((Date.now()-t0)/1000)} s`);
+  clearInterval(searchTimer); searchTimer=setInterval(tick,1000);
+  const seen=new Set(), found=[], fails=[], areas=[]; let fromCache=0;
   try{
-    for(let n=0;n<places.length;n++){
-      const q=places[n], pre=multi?`(${n+1}/${places.length}) `:"";
+    // 1) localiza os lugares (1 por segundo, regra do servidor; o que já foi buscado vem do cache na hora)
+    label="Localizando "+places[0]; tick();
+    // 2) busca as empresas de até 2 lugares ao mesmo tempo
+    let idx=0;
+    const worker=async()=>{ while(idx<places.length){ const n=idx++, q=places[n];
       try{
-        if(n>0) await sleep(1100); // regra do servidor de localização: 1 pedido por segundo
-        setStatus(pre+"Localizando "+q+"…");
-        const g=await geocode(q);
-        const ad=g.address||{};
-        currentCity=(ad.city||ad.town||ad.village||ad.municipality||g.name||q.split(",")[0]).trim();
-        const area=(g.name||q.split(",")[0]).trim();
-        let header="[out:json][timeout:120][maxsize:536870912];", clause;
-        if($("mode").value==="radius" || g.osm_type!=="relation"){
-          clause=`(around:${Math.round(Math.min(30,Math.max(.5,parseFloat($("radius").value)||3))*1000)},${Number(g.lat)},${Number(g.lon)})`;
-        } else { if(!/^\d+$/.test(String(g.osm_id))) throw new Error("Resposta inválida do servidor."); header+=`area(${3600000000+Number(g.osm_id)})->.a;`; clause="(area.a)"; }
-        const parts=[...activeCats].flatMap(k=>CATS[k].sel.map(s=>s+noSite+clause+";"));
-        setStatus(pre+"Buscando empresas sem site em "+(multi?area:g.display_name)+"… (pode levar até 1 minuto)");
-        const data=await overpass(header+"("+parts.join("")+");out center tags;");
+        const r=await searchPlace(q,s=>{ label=(multi?`(${areas.length+fails.length+1}/${places.length}) `:"")+s; tick(); });
+        if(r.cachedAt) fromCache++;
         let c=0;
-        for(const el of data.elements||[]){
-          const id=el.type[0]+el.id; if(seen.has(id)) continue; seen.add(id);
-          const raw2=toLead(el); raw2.area=area;
-          const lead=cleanLead(raw2); if(!lead) continue;
-          if($("noBrands").checked && lead.brand) continue;
-          if($("onlyPhone").checked && !lead.phone) continue;
-          found.push(lead); c++;
-        }
-        areas.push({area,c,full:g.display_name});
-      }catch(e){ fails.push(q+(places.length===1?"":"")); if(places.length===1) throw e; }
-    }
+        for(const l of r.leads){ if(seen.has(l.id)) continue; seen.add(l.id);
+          if($("noBrands").checked && l.brand) continue;
+          if($("onlyPhone").checked && !l.phone) continue;
+          found.push(l); c++; }
+        areas.push({area:r.area,c,full:r.full}); currentCity=r.city;
+        if(multi){ results=found.slice(); renderResults(); } // mostra o que já chegou
+      }catch(e){ fails.push(q); if(!multi) throw e; }
+    } };
+    await Promise.all(multi?[worker(),worker()]:[worker()]);
     results=found;
     store.recent=[raw, ...store.recent.filter(x=>x.toLowerCase()!==raw.toLowerCase())].slice(0,6); saveStore(); renderRecent();
     const af=$("areaFilter"); af.innerHTML='<option value="">Todos os bairros</option>'+areas.map(a=>`<option value="${esc(a.area)}">${esc(a.area)} (${a.c})</option>`).join(""); af.hidden=areas.length<2; af.value="";
     selected.clear(); page=1; renderResults(); refreshMap();
-    if(window.hzMoreSources) hzMoreSources(multi?places[0].split(",").slice(-2).join(",").trim()||currentCity:currentCity, [...activeCats]);
+    if(window.hzMoreSources) hzMoreSources(currentCity, [...activeCats]);
+    const secs=Math.max(1,Math.round((Date.now()-t0)/1000));
     const where = multi ? `${areas.length} ${areas.length===1?"lugar":"bairros"}` : (areas[0]?areas[0].full:"");
-    let msg = results.length ? `${results.length} empresas sem site encontradas em ${where}.` : "Nenhuma empresa encontrada com esses filtros. Tente outras categorias ou uma área maior.";
-    if(fails.length) msg+=` Não consegui buscar: ${fails.join(", ")}.`;
-    setStatus(msg, !results.length && fails.length>0);
+    let msg = results.length ? `${results.length} empresas sem site em ${where} · ${secs} s` : "Nenhuma empresa encontrada com esses filtros. Tente outros nichos ou uma área maior.";
+    if(fromCache===places.length && results.length) msg=`${results.length} empresas sem site em ${where} · resultado salvo, instantâneo`;
+    if(fails.length) msg+=` · Não consegui buscar: ${fails.join(", ")}.`;
+    clearInterval(searchTimer); setStatus(msg, !results.length && fails.length>0);
+    $("refreshBtn").hidden=!fromCache;
     switchTab("results");
-  }catch(e){ setStatus((e && e.message) || "Algo deu errado. Tente novamente.", true); }
-  finally{ loading(false); }
+  }catch(e){ clearInterval(searchTimer); setStatus((e && e.message) || "Algo deu errado. Tente novamente.", true); }
+  finally{ clearInterval(searchTimer); loading(false); }
 }
 function catOf(t){
-  for(const [k,c] of Object.entries(CATS)) for(const s of c.sel){
-    const m = s.match(/\["(\w+)"(?:~"\^\(([^)]+)\)\$"|="([^"]+)")?\]/); if(!m) continue;
-    const vals = m[2]?m[2].split("|"):(m[3]?[m[3]]:null);
-    if(t[m[1]] && (!vals || vals.includes(t[m[1]]))) return k;
+  for(const [k,c] of Object.entries(CATS)) for(const [key,vals] of Object.entries(c.t)){
+    if(t[key] && (vals===true || vals.includes(t[key]))) return k;
   }
   return "";
+}
+// junta todos os nichos marcados numa consulta curta: uma linha por etiqueta (shop, amenity…)
+function buildQuery(cats, clause){
+  const by={};
+  cats.forEach(k=>Object.entries(CATS[k].t).forEach(([key,vals])=>{ if(by[key]===true) return; by[key]= vals===true ? true : [...new Set([...(by[key]||[]),...vals])]; }));
+  const noSite='["name"][!"website"][!"contact:website"][!"url"][!"website:menu"]';
+  return Object.entries(by).map(([key,vals])=> vals===true ? `nw["${key}"]${noSite}${clause};` : `nw["${key}"~"^(${vals.join("|")})$"]${noSite}${clause};`).join("");
 }
 function toLead(el){
   const t = el.tags||{};
@@ -1004,6 +1126,12 @@ const NICHE_TPL={
   auto:"Fala, tudo bem? Vi a {nome} aqui em {cidade} e notei que vocês ainda não têm site. Quem procura oficina no Google acaba indo em quem aparece primeiro. Faço sites rápidos com botão de WhatsApp para pedir orçamento. Posso te mandar um exemplo de como ficaria o da {nome}?",
   pet:"Oi! Tudo bem? Vi o {nome} aqui em {cidade} e notei que vocês ainda não têm um site. Com um site, os tutores encontram vocês no Google e já marcam banho e tosa pelo WhatsApp. Posso te mostrar como ficaria o site do {nome}, sem compromisso?",
   alimentacao:"Olá! Tudo bem? Vi o {nome} aqui em {cidade} e notei que vocês ainda não têm um site próprio. Com um site com cardápio, horário e botão de WhatsApp, fica muito mais fácil receber pedidos sem pagar taxa de aplicativo. Posso te mostrar como ficaria o do {nome}?",
+  moda:"Oi! Tudo bem? Vi a {nome} aqui em {cidade} e amei as peças. Notei que vocês ainda não têm um site: com um catálogo online e botão de WhatsApp, as clientes escolhem e pedem direto, até fora do horário da loja. Posso te mostrar como ficaria o da {nome}?",
+  construcao:"Olá! Tudo bem? Vi a {nome} em {cidade} e notei que vocês ainda não têm site. Quem vai reformar pesquisa no Google e pede orçamento para quem passa confiança. Um site com fotos das obras e botão de orçamento pelo WhatsApp ajuda muito. Posso te mostrar um exemplo?",
+  imobiliarias:"Olá! Tudo bem? Vi a {nome} em {cidade} e notei que vocês ainda não têm site próprio. Um site com os imóveis, fotos e contato direto pelo WhatsApp gera leads sem depender só dos portais. Posso te mostrar como ficaria o da {nome}?",
+  tecnologia:"Oi! Tudo bem? Vi a {nome} em {cidade} e notei que vocês ainda não têm site. Quem quebra o celular pesquisa \"assistência perto de mim\" no Google na hora. Um site com os serviços e botão de WhatsApp coloca vocês na frente. Posso te mostrar um exemplo?",
+  eventos:"Olá! Tudo bem? Vi a {nome} em {cidade} e notei que vocês ainda não têm um site. Um portfólio online com fotos dos trabalhos e pedido de orçamento pelo WhatsApp passa muito mais profissionalismo. Posso te mostrar como ficaria o da {nome}?",
+  escritorios:"Olá! Tudo bem? Encontrei a {nome} em {cidade} e notei que vocês ainda não têm um site próprio. Para escritórios, um site profissional transmite credibilidade e ajuda novos clientes a encontrarem vocês no Google. Posso te mostrar um exemplo de como ficaria?",
   fitness:"Oi! Tudo bem? Vi a {nome} em {cidade} e notei que vocês ainda não têm site. Um site com planos, horários e aula experimental pelo WhatsApp ajuda muito a trazer alunos novos. Posso te mostrar um exemplo de como ficaria o da {nome}?",
 };
 function tplFor(cat,i){
@@ -1014,7 +1142,7 @@ function tplFor(cat,i){
 }
 function message(l){
   const st = statusOf(l.id);
-  const i = (st==="interessado"||st==="fechado") ? 2 : (st==="contatado"||st==="respondeu") ? 1 : 0;
+  const i = ["interessado","proposta","negociando","fechado","posvenda"].includes(st) ? 2 : ["contatado","respondeu","perdido"].includes(st) ? 1 : 0;
   const v = rec(l.id)?.value;
   return tplFor(l.cat,i).replace(/\{nome\}/g,l.name).replace(/\{cidade\}/g,l.city||currentCity).replace(/\{tipo\}/g,(l.type||"").toLowerCase()).replace(/\{valor\}/g, v?brl(v):"um valor que cabe no seu bolso");
 }
@@ -1054,7 +1182,7 @@ function addLog(l,k,txt){
 function leadCard(l, opts={}){
   const r = rec(l.id) || {}; const st = r.status || "novo";
   const L = links(l), open = opts.open || openDetails.has(l.id);
-  const due = r.follow && r.follow <= today() && !["fechado","descartado"].includes(st);
+  const due = r.follow && r.follow <= today() && !DONE.includes(st);
   const last=[...(r.log||[])].sort((a,b)=>b.t-a.t)[0];
   const tags = [];
   if(l.insta||l.fb) tags.push(`<span class="tag hot">Só redes sociais</span>`);
@@ -1139,7 +1267,7 @@ function bindList(container, after){
     if(act==="toggle"){ openDetails.has(l.id)?openDetails.delete(l.id):openDetails.add(l.id); rerenderCard(container,l.id); return; }
     if(act==="wa"){ // abre o WhatsApp e registra o contato
       const st=statusOf(l.id); addLog(l,"wa","Mensagem enviada");
-      if(st==="novo"||st==="verificar"){ upsert(l,{status:"contatado"}); toast("Marcado como Contatado"); }
+      if((st==="novo"||st==="verificar") && prefs().autoContact!==false){ upsert(l,{status:"contatado"}); toast("Marcado como Contatado"); }
       setTimeout(()=>refreshAll(after),50); return; }
     if(act==="log"){ const box=b.closest(".log-add"), k=box.querySelector("[data-k]").value, txt=box.querySelector("[data-txt]").value.trim();
       addLog(l,k,txt); toast("Contato registrado"); openDetails.add(l.id); rerenderCard(container,l.id); renderKpis(); updateBadges(); return; }
@@ -1201,9 +1329,10 @@ async function copyText(txt){
 
 /* ================== resultados ================== */
 function filtered(){
-  const q = $("q").value.trim().toLowerCase(), cf = $("catFilter").value, sort=$("sort").value, ex=$("extraFilter").value, hide=$("hideKnown").checked, af=$("areaFilter").value;
+  const q = $("q").value.trim().toLowerCase(), cf = $("catFilter").value, sort=$("sort").value, ex=$("extraFilter").value, hide=$("hideKnown").checked, af=$("areaFilter").value, inf=$("infoFilter").value, ms=Number($("minScore").value)||0;
   let arr = results.filter(l=>(!cf||l.cat===cf) && (!af||l.area===af) && (!q || (l.name+" "+l.addr+" "+l.type).toLowerCase().includes(q))
-    && (!ex || (ex==="phone"&&l.phone) || (ex==="social"&&(l.insta||l.fb)) || (ex==="nocontact"&&!l.phone&&!l.insta&&!l.fb&&!l.email))
+    && (!ex || (ex==="phone"&&l.phone) || (ex==="whats"&&waNumber(l.phone)&&/^55\d{2}9/.test(waNumber(l.phone))) || (ex==="social"&&(l.insta||l.fb)) || (ex==="insta"&&l.insta) || (ex==="email"&&l.email) || (ex==="nocontact"&&!l.phone&&!l.insta&&!l.fb&&!l.email))
+    && (!inf || (inf==="addr"&&l.addr) || (inf==="hours"&&l.hours) || (inf==="noaddr"&&!l.addr)) && (l.score>=ms)
     && (!hide || statusOf(l.id)==="novo" || selected.has(l.id) || Date.now()-(rec(l.id)?.updated||0)<4000));
   if(sort==="score") arr.sort((a,b)=>b.score-a.score || a.name.localeCompare(b.name));
   if(sort==="name") arr.sort((a,b)=>a.name.localeCompare(b.name));
@@ -1224,8 +1353,12 @@ function renderResults(){
   if($("next")) $("next").onclick=()=>{page++;renderResults();window.scrollTo({top:$("list").offsetTop-120,behavior:"smooth"});};
   updateBadges();
 }
-["q","sort","catFilter","extraFilter","areaFilter"].forEach(id=>$(id).addEventListener("input",()=>{page=1;renderResults();}));
+["q","sort","catFilter","extraFilter","areaFilter","infoFilter","minScore"].forEach(id=>$(id).addEventListener("input",()=>{page=1;renderResults();}));
 $("hideKnown").onchange=()=>{page=1;renderResults();};
+const FILTER_IDS=["q","catFilter","extraFilter","areaFilter","infoFilter","minScore"];
+function syncClearBtn(){ $("clearFilters").hidden=!FILTER_IDS.some(id=>$(id).value&&$(id).value!=="0"); }
+FILTER_IDS.forEach(id=>$(id).addEventListener("input",syncClearBtn));
+$("clearFilters").onclick=()=>{ FILTER_IDS.forEach(id=>{ $(id).value = id==="minScore"?"0":""; }); syncClearBtn(); page=1; renderResults(); };
 $("selPage").onclick=()=>{
   document.querySelectorAll("#list .lead").forEach(c=>{ selected.add(c.dataset.id); c.classList.add("sel"); const cb=c.querySelector("[data-act=sel]"); if(cb) cb.checked=true; });
   updateBulk();
@@ -1247,13 +1380,14 @@ function funnelLeads(){ return Object.values(store.leads).filter(x=>x.data && x.
 function renderFunnel(){
   const q=$("fq").value.trim().toLowerCase();
   const all = funnelLeads().filter(x=>!q||(x.data.name+" "+x.data.addr+" "+(x.note||"")).toLowerCase().includes(q));
-  $("board").innerHTML = Object.entries(STATUSES).filter(([k])=>k!=="novo").map(([k,s])=>{
+  const vis=prefs().stages;
+  $("board").innerHTML = Object.entries(STATUSES).filter(([k])=>k!=="novo" && (!vis||vis.includes(k))).map(([k,s])=>{
     const items = all.filter(x=>x.status===k).sort((a,b)=>(b.updated||0)-(a.updated||0));
     const sum = items.reduce((t,x)=>t+(Number(x.value)||0),0);
     return `<div class="col" data-status="${k}">
       <h4><i class="dot" style="background:${s.c}"></i>${s.label}<span class="badge">${items.length}</span></h4>
       ${sum?`<div class="sum">${brl(sum)}</div>`:""}
-      ${items.map(x=>{ const l=x.data, L=links(l); const due = x.follow && x.follow<=today() && !["fechado","descartado"].includes(k);
+      ${items.map(x=>{ const l=x.data, L=links(l); const due = x.follow && x.follow<=today() && !DONE.includes(k);
         return `<div class="kcard" draggable="true" data-id="${esc(l.id)}" style="--c:${s.c}">
           <b>${esc(l.name)}</b>
           <div class="m">${esc(l.type||"")}${l.phone?" · "+esc(l.phone):""}</div>
@@ -1290,7 +1424,7 @@ $("modal").addEventListener("click", e=>{ if(e.target.id==="modal" && !$("modal"
 bindList($("modalBox"), "modal");
 
 function celebrate(){
-  if(reduceMotion) return;
+  if(reduceMotion || prefs().confetti===false){ toast("🎉 Cliente fechado!"); return; }
   const colors=["#8b5cf6","#3b82f6","#22c55e","#f59e0b","#ec4899"];
   for(let i=0;i<60;i++){
     const p=document.createElement("i");
@@ -1303,7 +1437,7 @@ function celebrate(){
 }
 
 /* ================== lembretes ================== */
-function reminderLeads(){ return funnelLeads().filter(x=>x.follow && !["fechado","descartado"].includes(x.status)).sort((a,b)=>a.follow.localeCompare(b.follow)); }
+function reminderLeads(){ return funnelLeads().filter(x=>x.follow && !DONE.includes(x.status)).sort((a,b)=>a.follow.localeCompare(b.follow)); }
 function renderReminders(){
   const arr = reminderLeads(), t=today();
   const overdue = arr.filter(x=>x.follow<=t), next = arr.filter(x=>x.follow>t);
@@ -1360,10 +1494,10 @@ loadTplEditor();
 /* ================== KPIs e badges ================== */
 function renderKpis(){
   const f=funnelLeads(), t=today();
-  const contacted=f.filter(x=>["contatado","respondeu","interessado","fechado"].includes(x.status)).length;
-  const closed=f.filter(x=>x.status==="fechado");
+  const contacted=f.filter(x=>WORKED.includes(x.status)).length;
+  const closed=f.filter(x=>x.status==="fechado"||x.status==="posvenda");
   const won=closed.reduce((s,x)=>s+(Number(x.value)||0),0);
-  const pipe=f.filter(x=>["respondeu","interessado"].includes(x.status)).reduce((s,x)=>s+(Number(x.value)||0),0);
+  const pipe=f.filter(x=>OPEN_DEAL.includes(x.status)).reduce((s,x)=>s+(Number(x.value)||0),0);
   const conv = contacted ? Math.round(closed.length/contacted*100) : 0;
   const k=(cls,icon,val,lbl)=>`<div class="kpi"><b>${val}</b><span>${lbl}</span></div>`;
   $("kpis").innerHTML =
@@ -1371,7 +1505,7 @@ function renderKpis(){
     k("i2",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>', contacted, "contatados") +
     k("i3",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>', brl(pipe), "em negociação") +
     k("i4",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>', brl(won), `fechado · ${closed.length} cliente${closed.length===1?"":"s"}`) +
-    k("i5",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>', f.filter(x=>x.follow&&x.follow<=t&&!["fechado","descartado"].includes(x.status)).length, `retornos para hoje · conversão ${conv}%`);
+    k("i5",'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>', f.filter(x=>x.follow&&x.follow<=t&&!DONE.includes(x.status)).length, `retornos para hoje · conversão ${conv}%`);
 }
 function updateBadges(){
   $("bRes").textContent=results.length; $("bFun").textContent=funnelLeads().length;
@@ -1438,6 +1572,41 @@ document.addEventListener("keydown", e=>{
   if(e.key==="/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); switchTab("results"); $("q").focus(); }
   if(e.key==="Escape"){ if($("modal").classList.contains("on")){ if(!$("modal").dataset.lock) closeModal(); } else if(selected.size){ selected.clear(); updateBulk(); renderResults(); } }
 });
+
+/* ================== preferências ================== */
+const ACCENTS={roxo:"#6d3df5",azul:"#2563eb",verde:"#15803d",laranja:"#ea580c",rosa:"#db2777",grafite:"#334155"};
+function setPref(k,v){ store.prefs[k]=v; saveStore(); }
+function applyPrefs(first){
+  const P=store.prefs;
+  PAGE=P.perPage;
+  if(first){ $("mode").value=P.mode; $("radius").value=P.radius; $("sort").value=P.sort; $("noBrands").checked=P.noBrands; $("onlyPhone").checked=P.onlyPhone; $("hideKnown").checked=P.hideKnown; $("radiusBox").style.display=P.mode==="radius"?"":"none"; }
+  $("pMode").value=P.mode; $("pRadius").value=P.radius; $("pSort").value=P.sort; $("pPer").value=String(P.perPage); $("pCache").value=String(P.cacheDays);
+  $("pAuto").checked=P.autoContact; $("pConfetti").checked=P.confetti;
+  let acc="roxo"; try{ acc=localStorage.getItem("horizon-accent")||"roxo"; }catch(e){}
+  $("pAccent").innerHTML=Object.entries(ACCENTS).map(([k,c])=>`<button type="button" class="sw ${k===acc?"on":""}" data-acc="${k}" title="${k}" style="background:${c}"></button>`).join("");
+  const vis=P.stages||Object.keys(STATUSES).filter(k=>k!=="novo");
+  $("pStages").innerHTML=Object.entries(STATUSES).filter(([k])=>k!=="novo").map(([k,s])=>`<label><input type="checkbox" data-stage="${k}" ${vis.includes(k)?"checked":""}><i class="dot" style="background:${s.c}"></i>${s.label}</label>`).join("");
+}
+$("pMode").onchange=()=>{ setPref("mode",$("pMode").value); $("mode").value=$("pMode").value; $("radiusBox").style.display=$("mode").value==="radius"?"":"none"; };
+$("pRadius").onchange=()=>{ const v=Math.max(.5,Math.min(30,parseFloat($("pRadius").value)||3)); setPref("radius",v); $("radius").value=v; };
+$("pSort").onchange=()=>{ setPref("sort",$("pSort").value); $("sort").value=$("pSort").value; renderResults(); };
+$("pPer").onchange=()=>{ setPref("perPage",Number($("pPer").value)); PAGE=store.prefs.perPage; page=1; renderResults(); };
+$("pCache").onchange=()=>setPref("cacheDays",Number($("pCache").value));
+$("pAuto").onchange=()=>setPref("autoContact",$("pAuto").checked);
+$("pConfetti").onchange=()=>setPref("confetti",$("pConfetti").checked);
+$("pAccent").addEventListener("click",e=>{ const b=e.target.closest("[data-acc]"); if(!b) return; const a=b.dataset.acc;
+  if(a==="roxo") delete document.documentElement.dataset.accent; else document.documentElement.dataset.accent=a;
+  try{ a==="roxo"?localStorage.removeItem("horizon-accent"):localStorage.setItem("horizon-accent",a); }catch(e){}
+  applyPrefs(); });
+$("pStages").addEventListener("change",()=>{ const v=[...document.querySelectorAll("[data-stage]:checked")].map(x=>x.dataset.stage); if(!v.length){ toast("Deixe pelo menos uma etapa"); applyPrefs(); return; } setPref("stages",v); if(currentTab==="funnel") renderFunnel(); });
+$("pClearCache").onclick=()=>{ try{ localStorage.removeItem("horizon-cache"); }catch(e){} toast("Buscas guardadas apagadas"); };
+// lembrar escolhas feitas direto na busca
+$("noBrands").addEventListener("change",()=>setPref("noBrands",$("noBrands").checked));
+$("onlyPhone").addEventListener("change",()=>setPref("onlyPhone",$("onlyPhone").checked));
+$("hideKnown").addEventListener("change",()=>setPref("hideKnown",$("hideKnown").checked));
+$("mode").addEventListener("change",()=>setPref("mode",$("mode").value));
+$("radius").addEventListener("change",()=>setPref("radius",Math.max(.5,Math.min(30,parseFloat($("radius").value)||3))));
+applyPrefs(true);
 
 /* ================== início ================== */
 renderRecent(); renderKpis(); renderResults();
@@ -1536,7 +1705,14 @@ renderRecent(); renderKpis(); renderResults();
     escritorios:["#364fc7","#edf2ff","💼",["Atendimento especializado","Soluções sob medida","Confiança e sigilo"]],
     fitness:["#d6336c","#fff0f6","💪",["Treinos orientados","Equipamentos modernos","Planos flexíveis"]],
     educacao:["#1971c2","#e7f5ff","🎓",["Professores qualificados","Turmas para todas as idades","Aprendizado de verdade"]],
-    hospedagem:["#0b7285","#e3fafc","🏨",["Quartos confortáveis","Ótima localização","Café da manhã"]]};
+    hospedagem:["#0b7285","#e3fafc","🏨",["Quartos confortáveis","Ótima localização","Café da manhã"]],
+    moda:["#ae3ec9","#f8f0fc","👗",["Novidades toda semana","Peças selecionadas","Compre pelo WhatsApp"]],
+    casa:["#a0522d","#fff4e6","🛋️",["Ambientes que inspiram","Entrega e montagem","Condições especiais"]],
+    construcao:["#e67700","#fff9db","🏗️",["Obras e reformas","Orçamento sem compromisso","Equipe especializada"]],
+    tecnologia:["#1864ab","#e7f5ff","📱",["Conserto rápido","Peças de qualidade","Garantia no serviço"]],
+    eventos:["#c2255c","#fff0f6","📸",["Portfólio completo","Pacotes sob medida","Agende sua data"]],
+    imobiliarias:["#2b8a3e","#ebfbee","🏠",["Imóveis para comprar e alugar","Atendimento personalizado","Documentação segura"]],
+    igrejas:["#5f3dc4","#f3f0ff","⛪",["Horários de culto","Ministérios e grupos","Venha nos visitar"]]};
   window.hzPreview=function(l){
     if(!isPro()) return openPlans("pro");
     const th=THEMES[l.cat]||["#6d3df5","#f3f0ff","⭐",["Atendimento de qualidade","Tradição e confiança","Fale com a gente"]];
@@ -1572,7 +1748,7 @@ footer{text-align:center;color:#6b7280;font-size:13px;padding:30px 6vw 50px}.rib
   /* ---------- relatórios ---------- */
   window.hzReports=function(){
     const all=Object.values(store.leads||{}), byS=s=>all.filter(x=>x.status===s);
-    const closed=byS("fechado"), contacted=all.filter(x=>["contatado","respondeu","interessado","fechado"].includes(x.status)||(x.hist||[]).some(h=>h.s==="contatado"));
+    const closed=all.filter(x=>x.status==="fechado"||x.status==="posvenda"), contacted=all.filter(x=>WORKED.includes(x.status)||(x.hist||[]).some(h=>h.s==="contatado"));
     const revenue=closed.reduce((s,x)=>s+(Number(x.value)||0),0), ticket=closed.length?revenue/closed.length:0;
     const conv=contacted.length?Math.round(closed.length/contacted.length*100):0;
     const k=(c,i,v,l)=>`<div class="kpi"><div class="ico ${c}">${i}</div><b>${v}</b><span>${l}</span></div>`;
@@ -1604,7 +1780,7 @@ footer{text-align:center;color:#6b7280;font-size:13px;padding:30px 6vw 50px}.rib
   }
 
   /* ---------- mais fontes de empresas ---------- */
-  const TERMS={alimentacao:"restaurantes",beleza:"salões de beleza",saude:"clínicas",auto:"oficinas mecânicas",pet:"pet shops",comercio:"lojas",mercado:"mercados",servicos:"prestadores de serviço",escritorios:"escritórios",fitness:"academias",educacao:"escolas e cursos",hospedagem:"pousadas e hotéis"};
+  const TERMS={moda:"lojas de roupas",casa:"lojas de móveis e decoração",construcao:"materiais de construção e reformas",tecnologia:"assistência técnica de celular",eventos:"fotógrafos e eventos",imobiliarias:"imobiliárias",igrejas:"igrejas",alimentacao:"restaurantes",beleza:"salões de beleza",saude:"clínicas",auto:"oficinas mecânicas",pet:"pet shops",comercio:"lojas",mercado:"mercados",servicos:"prestadores de serviço",escritorios:"escritórios de contabilidade e advocacia",fitness:"academias",educacao:"escolas e cursos",hospedagem:"pousadas, hotéis e agências de viagem"};
   window.hzMoreSources=function(city,cats){
     const el=$("moreSrc"); if(!el) return;
     if(!city||!cats.length){ el.hidden=true; return; }
